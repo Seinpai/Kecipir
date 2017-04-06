@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "677361563777",
+    "project_id": "kecipir---local-organic-fresh"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677361563777:android:9dda55f21a31c073",
+        "android_client_info": {
+          "package_name": "com.kecipir.kecipir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677361563777-spo0avl8pg3rvp6ko4j5dqvq5mkjh7ph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kecipir.kecipir",
+            "certificate_hash": "C04C1E4D9B0FC68BBC2555E640FE6CADC015B44D"
+          }
+        },
+        {
+          "client_id": "677361563777-hhl3akf00hmnv397n0nlchiluqo3cunq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIhrYMioAF_ohxrloDk0mOtL38Qm1_Zak"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-73078113-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

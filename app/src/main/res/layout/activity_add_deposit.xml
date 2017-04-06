@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.kecipir.kecipir.AddDepositActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:layout_marginBottom="?actionBarSize"
+        tools:context="com.kecipir.kecipir.KonfirmPembayaranActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:focusable="false"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text="Nominal Deposit" />
+
+                <EditText
+                    android:id="@+id/edt_nominal_deposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:hint="Nominal deposit (contoh. 50000)"
+                    android:inputType="number"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:focusable="false"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text="Tujuan Pembayaran" />
+
+                <Spinner
+                    android:id="@+id/spinner_payment_deposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:focusable="false"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:singleLine="true"
+                    android:text="Keterangan (optional)" />
+
+                <EditText
+                    android:id="@+id/edt_ket_deposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="top"
+                    android:hint="Keterangan untuk Kecipir"
+                    android:lines="4"
+                    android:minHeight="80dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="8dp"
+                    android:scrollbars="vertical" />
+
+            </LinearLayout>
+
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark">
+
+        <Button
+            android:id="@+id/btn_tbhdeposit"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="Tambah"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#eaeaea">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:alpha="0.5"
+        android:background="#000"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

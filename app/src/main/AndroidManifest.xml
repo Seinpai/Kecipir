@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kecipir.kecipir">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <application
+        android:name=".data.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MemberStartActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetailProdukActivity"
+            android:label="@string/title_activity_detail_produk"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShoppingCartActivity"
+            android:label="Keranjang Belanja"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HistoryActivity"
+            android:label="Riwayat Pembelian"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FavoriteActivity"
+            android:label="Favorit"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreen"
+            android:label="Kecipir"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Transluscent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MemberStartActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Transluscent" />
+        <activity
+            android:name=".HostStartActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Transluscent" />
+        <activity
+            android:name=".MemberIntroductionActivity"
+            android:label="Perkenalan Member"
+            android:parentActivityName=".MemberStartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HostIntroductionActivity"
+            android:label="Perkenalan Agen"
+            android:parentActivityName=".HostStartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DaftarMemberActivity"
+            android:parentActivityName=".MemberStartActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".DaftarHostActivity"
+            android:label="Daftar Agen"
+            android:parentActivityName=".HostStartActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Profil"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".CheckOutActivity"
+            android:label="Check Out"
+            android:parentActivityName=".ShoppingCartActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".DaftarHostSecondActivity"
+            android:label="Anggota Member"
+            android:parentActivityName=".DaftarHostActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:label="Tentang Kami"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".PembayaranActivity"
+            android:label="Pembayaran"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".KomisiActivity"
+            android:label="Komisi"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".AddmemberActivity"
+            android:label="Tambah Member"
+            android:parentActivityName=".MemberAgenActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ListDepositActivity"
+            android:label="@string/title_activity_list_deposit"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kecipir.kecipir.MainActivity" />
+        </activity>
+        <activity android:name=".AddDepositActivity" />
+        <activity
+            android:name=".KonfirmPembayaranActivity"
+            android:label="Konfirmasi Pembayaran"
+            android:parentActivityName=".PembayaranActivity" />
+        <activity
+            android:name=".KonfirmDepositActivity"
+            android:label="Konfirmasi Greencash"
+            android:parentActivityName=".ListDepositActivity" />
+        <activity
+            android:name=".TarikDepositActivity"
+            android:label="Penarikan Green Cash"
+            android:parentActivityName=".ListDepositActivity" />
+        <activity
+            android:name=".AkunBankActivity"
+            android:label="Akun Bank Saya"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddAkunBankActivity"
+            android:label="Tambah Akun Bank"
+            android:parentActivityName=".AkunBankActivity" />
+
+        <service android:name=".gcm.MyFcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".gcm.MyInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBlNB6HAtNq-BIJj-xcdd2SMFFUzssneWg" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity android:name=".PilihHostActvity" />
+        <activity
+            android:name=".HistoryDetailActivity"
+            android:label="Detail Belanjaan"
+            android:parentActivityName=".HistoryActivity" />
+        <activity
+            android:name=".NotificationActivity"
+            android:label="Berita"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NotificationDetailActivity"
+            android:label="Berita"
+            android:parentActivityName=".NotificationActivity" />
+        <activity
+            android:name=".BayarMemberActivity"
+            android:label="Pembayaran Member"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MemberAgenActivity"
+            android:label="Member Saya"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".XenditConfirmationActivity"
+            android:label="Rincian Belanja" />
+        <activity
+            android:name=".AddGreencashActivity"
+            android:label="Tambah Greencash" />
+        <activity
+            android:name=".XenditGreencashActivity"
+            android:label="Rincian Greencash" />
+        <activity android:name=".DetailGreencashActivity"
+            android:label="Rincian Greencash" />
+        <activity android:name=".DetailPembayaranActivity"
+            android:label="Rincian Belanja"></activity>
+    </application>
+
+</manifest>

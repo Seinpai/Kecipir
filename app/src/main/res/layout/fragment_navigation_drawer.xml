@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_sidemenu_"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageUser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/userpp"
+                app:civ_border_color="@color/colorOrange"
+                app:civ_border_width="1dp" />
+
+            <TextView
+                android:id="@+id/namaUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/imageUser"
+                android:layout_toRightOf="@+id/imageUser"
+                android:text="Nama USER"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/emailUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/namaUser"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/imageUser"
+                android:layout_toRightOf="@+id/imageUser"
+                android:text="Email USER"
+                android:textColor="#fff" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp">
+
+                    <TextView
+                        android:id="@+id/lbl_tglpanen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="Hari Panen"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/txt_tglpanen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/lbl_tglpanen"
+                        android:layout_alignStart="@+id/lbl_tglpanen"
+                        android:layout_below="@+id/lbl_tglpanen"
+                        android:paddingRight="48dp"
+                        android:text="-"
+                        android:textColor="#fff" />
+
+                    <ImageView
+                        android:id="@+id/img_tglpanen"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/ic_btn_settings" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/lbl_tglorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Batas Order"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/txt_tglorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lbl_tglorder"
+                        android:layout_marginLeft="10dp"
+                        android:paddingRight="48dp"
+                        android:text="-"
+                        android:textColor="#fff" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="12dp">
+
+                    <TextView
+                        android:id="@+id/lbl_hostUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="Lokasi Agen"
+                        android:textColor="#fff" />
+
+                    <TextView
+                        android:id="@+id/txt_hostUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/lbl_hostUser"
+                        android:layout_marginLeft="10dp"
+                        android:paddingRight="48dp"
+                        android:text="-"
+                        android:textColor="#fff" />
+
+                    <ImageView
+                        android:id="@+id/img_host"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:src="@drawable/ic_btn_settings" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_nav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_marginTop="8dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <RelativeLayout
+        android:id="@+id/layout_deposit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbar"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/lbl_total_depo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Greencash" />
+
+        <TextView
+            android:id="@+id/txt_total_depo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lbl_total_depo"
+            android:text="Rp. 0"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_below="@id/layout_deposit"
+        android:id="@+id/img_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        android:layout_margin="8dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_divider">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <TextView
+        android:id="@+id/txt_message"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/img_divider"
+        android:background="@color/colorOrange"
+        android:gravity="center"
+        android:text="Tidak ada pembayaran COD member yang tertunda"
+        android:textColor="@android:color/white"
+        android:visibility="invisible" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/layout_dev"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#fff"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fitur masih dalam tahap pengembangan. Fitur ini untuk agen membayarkan COD member dengan Greencashnya"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#fff">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:alpha="0.5"
+        android:background="#000"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

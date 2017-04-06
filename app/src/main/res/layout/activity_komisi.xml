@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kecipir.kecipir.KomisiActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <TableLayout
+        android:layout_margin="8dp"
+        android:id="@+id/table_komisi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Bulan"
+                android:background="@drawable/cell_shape"
+                android:textColor="@android:color/white"
+                android:id="@+id/textView"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Total Komisi"
+                android:background="@drawable/cell_shape"
+                android:textColor="@android:color/white"
+                android:id="@+id/textView2"
+                android:padding="8dp"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

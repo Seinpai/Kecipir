@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    tools:context="com.kecipir.kecipir.DaftarMemberActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_logo_white" />
+
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Anggota Member 1"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Nama Lengkap"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_namamember1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Nama Lengkap"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Email"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_emailmember1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Alamat Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="No Telp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_notelpmember1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:inputType="number"
+                android:hint="No. Telp/ HP"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Anggota Member 2"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Nama Lengkap"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_namamember2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Nama Lengkap"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Email"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_emailmember2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Alamat Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="No Telp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_notelpmember2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="No. Telp/ HP"
+                android:inputType="number"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Anggota Member 3"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Nama Lengkap"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_namamember3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Nama Lengkap"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Email"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_emailmember3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Alamat Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="No Telp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_notelpmember3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="No. Telp/ HP"
+                android:inputType="number"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+            <CheckBox
+                android:id="@+id/chk_reghost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Saya Setuju dengan Syarat dan Ketentuan Berlaku"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_reghost"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorOrange"
+                android:text="Daftar"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbarb" />
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#000"
+        android:visibility="invisible"
+        android:alpha="0.5"
+        android:clickable="true"
+        >
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

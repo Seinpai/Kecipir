@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Kecipir</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_host">Alamat Host</string>
+    <string name="title_activity_main">Kecipir</string>
+    <string name="logout">LOGOUT</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
+    <string name="title_activity_detail_produk">DetailProdukActivity</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="facebook_app_id">226792487659296</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_list_deposit">Green Cash</string>
+
+    <string name="Smooch_activityConversation">Kecipir Chat</string>
+    <string name="Smooch_startOfConversation">Halo, ini adalah awal percakapan anda dengan Kecipir</string>
+    <string name="Smooch_welcome">Kami hadir untuk membantu konsumsi sehat Anda. Silahkan sampaikan pesan di bawah. \nJam aktif, Senin-Jumat, 09:00 - 17:00 WIB</string>
+</resources>

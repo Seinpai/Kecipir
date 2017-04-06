@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+        android:id="@+id/gantipass_old"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Password Lama"/>
+
+    <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+        android:id="@+id/gantipass_new"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textPassword"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Password Baru"/>
+
+    <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+        android:id="@+id/gantipass_new2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textPassword"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Ulangi Password Baru"/>
+
+    <Button
+        android:id="@+id/confirm_gantipass"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Ganti Password"
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"/>
+
+</LinearLayout>

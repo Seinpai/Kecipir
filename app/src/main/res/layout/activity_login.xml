@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="#eeeeee">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_logo_white"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <!--<ImageView-->
+            <!--android:layout_width="180dp"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@drawable/ic_logo_white"/>-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/edt_host"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:hint="@string/hint_host"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--/>-->
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"/>
+
+            <com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText
+                android:id="@+id/edt_pass"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:inputType="textPassword"
+                android:hint="@string/hint_password"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"/>
+
+            <TextView
+                android:padding="8dp"
+                android:id="@+id/txt_forgotpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lupa Password?"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorPrimary"
+                android:textColor="#fff"
+                android:textAllCaps="false"
+                android:text="Sign in"/>
+
+            <Button
+                android:id="@+id/fblogin_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorFacebook"
+                android:text="Sign in with Facebook"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/btn_sign_in"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"/>
+
+
+            <Button
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorOrange"
+                android:text="Sign Up"
+
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <include android:id="@+id/appbar"
+    layout="@layout/appbarb"/>
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#000"
+        android:visibility="invisible"
+        android:alpha="0.5"
+        android:clickable="true"
+        >
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="150dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardBackgroundColor="#fff"
+    app:cardCornerRadius="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:padding="8dp"
+            android:layout_weight="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="6">
+
+                <TextView
+                    android:id="@+id/nota_historylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No Nota"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/nama_historylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nama"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tglorder_historylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tanggal Oreder"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/tglpanen_historylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tanggal Panen"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/totalharga_historylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Harga"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/stsbayar_historylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pembayaran"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+        <RelativeLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/status_historylist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Order"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorPrimary"/>
+
+        </RelativeLayout>
+
+        <!--<TableLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:weightSum="4"-->
+            <!--android:layout_margin="8dp">-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:weightSum="2">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nota_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:text="No Nota"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:layout_weight="1"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/status_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Status Order"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:layout_weight="1"/>-->
+
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nama_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:text="Nama" />-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:weightSum="2">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tglorder_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Tanggal Oreder"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:layout_weight="1" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/quantity_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Quantity"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:layout_weight="1" />-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:weightSum="2">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tglpanen_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Tanggal Panen"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:layout_weight="1"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/totalharga_historylist"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Total Harga"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:layout_weight="1" />-->
+            <!--</TableRow>-->
+        <!--</TableLayout>-->
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

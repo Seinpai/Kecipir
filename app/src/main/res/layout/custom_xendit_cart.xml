@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="2dp"
+    app:cardBackgroundColor="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/img_cart"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:layout_margin="12dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/namabarang_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/img_cart"
+                android:layout_toRightOf="@+id/img_cart"
+                android:text="Nama Barang" />
+
+            <TextView
+                android:id="@+id/hargabarang_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/namabarang_cart"
+                android:layout_alignStart="@+id/namabarang_cart"
+                android:layout_below="@+id/namabarang_cart"
+                android:text="Harga Barang" />
+
+            <TextView
+                android:id="@+id/tglpanen_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/hargabarang_cart"
+                android:layout_alignStart="@+id/hargabarang_cart"
+                android:layout_below="@+id/hargabarang_cart"
+                android:text="Tgl Panen" />
+
+            <TextView
+                android:id="@+id/petani_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tglpanen_cart"
+                android:layout_alignStart="@+id/tglpanen_cart"
+                android:layout_below="@+id/tglpanen_cart"
+                android:text="Petani" />
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

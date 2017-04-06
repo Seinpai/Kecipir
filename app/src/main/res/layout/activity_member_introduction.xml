@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kecipir.kecipir.MemberIntroductionActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/appbar"
+        android:fillViewport="true"
+        android:layout_marginBottom="?actionBarSize">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/memberIntroductionVP"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/intro_daftaruser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Daftar Member"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/intro_jadihost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorOrange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Jadi Agen"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

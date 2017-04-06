@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.kecipir.kecipir.ListDepositActivity"
+    tools:showIn="@layout/activity_list_deposit">
+
+    <RelativeLayout
+        android:id="@+id/layout_deposit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/lbl_total_depo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total"/>
+
+        <TextView
+            android:layout_below="@id/lbl_total_depo"
+            android:id="@+id/txt_total_depo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:text="Rp. 0"/>
+
+
+        <TextView
+            android:layout_below="@id/txt_total_depo"
+            android:id="@+id/lbl_total_depo_utama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Deposit"/>
+
+
+        <TextView
+            android:id="@+id/txt_total_depo_utama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 0"
+            android:layout_above="@+id/lbl_total_bonus"
+            android:layout_alignLeft="@+id/txt_total_bonus"
+            android:layout_alignStart="@+id/txt_total_bonus" />
+
+
+        <TextView
+            android:id="@+id/lbl_total_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Bonus"
+            android:layout_below="@+id/lbl_total_depo_utama"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:id="@+id/txt_total_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 0"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_below="@+id/txt_total_depo_utama"
+            android:layout_toRightOf="@+id/lbl_total_depo_utama"
+            android:layout_toEndOf="@+id/lbl_total_depo_utama" />
+
+        <TextView
+            android:id="@+id/lbl_total_komisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Komisi"
+            android:visibility="gone"
+            android:layout_below="@+id/lbl_total_bonus"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:id="@+id/txt_total_komisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp. 0"
+            android:visibility="gone"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_below="@+id/txt_total_bonus"
+            android:layout_toRightOf="@+id/lbl_total_bonus"
+            android:layout_toEndOf="@+id/lbl_total_bonus" />
+
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/txt_total_komisi"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="2dp"
+            android:background="@android:color/background_dark"
+            android:id="@+id/imageView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penarikan"
+            android:textColor="@android:color/white"
+            android:id="@+id/btnPenarikan"
+            android:background="@color/colorPrimary"
+            android:layout_above="@+id/imageView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/txt_total_depo_utama" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_spanner"
+        android:layout_below="@id/layout_deposit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Transaksi Deposit"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView3" />
+
+        <ImageView
+            android:id="@+id/img_spanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_greencash"
+        android:layout_below="@id/layout_spanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <TextView
+        android:layout_below="@id/layout_spanner"
+        android:id="@+id/txt_message"
+        android:gravity="center"
+        android:text="Anda tidak punya greencash saat ini"
+        android:background="@color/colorOrange"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="invisible"/>
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#fff"
+        >
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:alpha="0.5"
+        android:background="#000"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

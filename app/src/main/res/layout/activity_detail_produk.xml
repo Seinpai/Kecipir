@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kecipir.kecipir.DetailProdukActivity"
+    android:background="#fff">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbar"
+        android:paddingBottom="?actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+
+                <ImageView
+                    android:id="@+id/foto_produk"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    />
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/btn_favorite"-->
+                    <!--android:layout_width="35dp"-->
+                    <!--android:layout_height="35dp"-->
+                    <!--android:layout_alignTop="@+id/btn_share"-->
+                    <!--android:layout_marginEnd="49dp"-->
+                    <!--android:layout_marginRight="49dp"-->
+                    <!--android:layout_toLeftOf="@+id/btn_share"-->
+                    <!--android:layout_toStartOf="@+id/btn_share"-->
+                    <!--android:src="@android:drawable/star_big_off" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/btn_share"-->
+                    <!--android:layout_width="35dp"-->
+                    <!--android:layout_height="35dp"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_marginBottom="27dp"-->
+                    <!--android:layout_marginEnd="33dp"-->
+                    <!--android:layout_marginRight="33dp"-->
+                    <!--android:src="@android:drawable/ic_menu_share" />-->
+
+                <ImageView
+                    android:id="@+id/image_detailsale"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:src="@drawable/ic_icon_sale"
+                    android:layout_alignParentTop="true"
+                    android:visibility="invisible"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+                <TextView
+                    android:id="@+id/nama_produk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:paddingStart="12dp"
+                    android:paddingRight="90dp"
+                    android:paddingEnd="90dp"
+                    android:text="NAMA PRODUK"
+                    android:textSize="24dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/kategori_barang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategory"
+                    android:padding="12dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#fff"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/grade_produk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="80dp"
+                        android:paddingEnd="80dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Nama Petani" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="info Petani" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/harga_jual"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 0000000"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/satuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Satuan"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_alignBaseline="@id/harga_jual"
+                    android:layout_toRightOf="@+id/harga_jual"
+                    android:layout_toEndOf="@+id/harga_jual" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="12dp"
+                android:background="#000"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/tgl_pengiriman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jadwal Pengiriman" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/ket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12sp"
+                android:text="KEterangan Produk" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="12dp"
+                android:background="#000"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark">
+
+        <Button
+            android:id="@+id/btn_min"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circlebuttonwhiteborder"
+            android:layout_centerVertical="true"
+            android:text="-"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/txt_jml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_min"
+            android:layout_toEndOf="@+id/btn_min" />
+
+        <Button
+            android:id="@+id/btn_plus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circlebuttonwhiteborder"
+            android:text="+"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/txt_jml"
+            android:layout_toEndOf="@+id/txt_jml"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Button
+            android:id="@+id/btn_addcart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:text="Add to cart"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/appbar"
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eaeaea">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#000"
+        android:visibility="invisible"
+        android:alpha="0.5"
+        android:clickable="true"
+        >
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

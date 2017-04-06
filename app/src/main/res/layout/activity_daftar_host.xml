@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#eeeeee">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_logo_white" />
+
+
+    </RelativeLayout>
+
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbarb" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp">
+
+            <CheckBox
+                android:id="@+id/chk_reghost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/txt_syarat_ketentuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/chk_reghost"/>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_reghost_lanjut1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorOrange"
+            android:text="Daftar"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_above="@id/layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Nama Lengkap"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_nama"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Nama Lengkap"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Email"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Alamat Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="No Telp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_notelp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="No. Telp/ HP"
+                android:inputType="number"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Jenis Agen"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerJenisHost"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Alamat"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:gravity="top"
+                android:hint="Alamat Anda"
+                android:lines="8"
+                android:minHeight="80dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:scrollbars="vertical"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Kota"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinnerKotaHost"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Kecamatan"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_kecamatan"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Kecamatan"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Kelurahan"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_kelurahan"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:hint="Kelurahan"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Kode Pos"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_reghost_kodepos"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#eeeeee"
+                android:background="#fff"
+                android:maxLength="5"
+                android:inputType="number"
+                android:hint="Kode Pos"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:singleLine="true" />
+
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/txt_reghost_pengantaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:focusable="false"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Saya bersedia untuk mengantarkan barang langsung ke member (layanan ini akan memberikan anda Rp. 15000 per pengantaran ke member)" />
+
+            <Spinner
+                android:visibility="gone"
+                android:id="@+id/spinner_reghost_pengantaran"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Privasi"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:visibility="gone"
+                android:id="@+id/chk_privasi_reghost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="dengan menchecklist ini akun agen Anda akan tersembunyi dan tidak bisa dipilih oleh user baru. Anda dapat menambah member di akun agen anda nanti."
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#000"
+        android:visibility="invisible"
+        android:alpha="0.5"
+        android:clickable="true"
+        >
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

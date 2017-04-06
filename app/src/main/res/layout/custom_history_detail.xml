@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <ImageView
+        android:id="@+id/history_detailfoto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/history_detailnamabarang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_toEndOf="@id/history_detailfoto"
+        android:layout_toRightOf="@id/history_detailfoto"
+        android:text="nama barang" />
+
+    <TextView
+        android:id="@+id/history_detailpetani"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/history_detailnamabarang"
+        android:layout_marginLeft="8dp"
+        android:layout_toEndOf="@+id/history_detailfoto"
+        android:layout_toRightOf="@+id/history_detailfoto"
+        android:text="petani" />
+
+    <TextView
+        android:id="@+id/history_detailgrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/history_detailnamabarang"
+        android:layout_toEndOf="@id/history_detailpetani"
+        android:layout_toRightOf="@id/history_detailpetani"
+        android:text="grade" />
+
+    <TextView
+        android:id="@+id/history_detailharga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/history_detailfoto"
+        android:layout_toEndOf="@id/history_detailquantity"
+        android:layout_toRightOf="@id/history_detailquantity"
+        android:text="harga" />
+
+    <TextView
+        android:id="@+id/history_detailquantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/history_detailfoto"
+        android:text="qunatity"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/history_detailsatuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/history_detailfoto"
+        android:layout_toEndOf="@id/history_detailharga"
+        android:layout_toRightOf="@id/history_detailharga"
+        android:text="satuan" />
+
+    <TextView
+        android:id="@+id/history_detailtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/history_detailquantity"
+        android:text="total"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp" />
+
+</RelativeLayout>

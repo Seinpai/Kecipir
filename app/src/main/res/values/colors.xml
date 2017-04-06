@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <color name="colorPrimary">#79d156</color>
+    <color name="colorPrimaryDark">#70bc52</color>
+    <color name="colorAccent">#3fff0c</color>
+    <color name="colorOrange">#ff9913</color>
+    <color name="colorOrangeDark">#ff810c</color>
+    <color name="colorFacebook">#3c5c95</color>
+    <color name="colorGplus">#f32e06</color>
+
+
+    <color name="Smooch_accent">#70bc52</color>
+    <color name="Smooch_accentDark">#70bc52</color>
+    <color name="Smooch_accentLight">#79d156</color>
+
+    <color name="Smooch_backgroundInput">#ffffff</color>
+
+    <color name="Smooch_btnSendHollow">#c0c0c0</color>
+    <color name="Smooch_btnSendHollowBorder">#303030</color>
+
+    <color name="Smooch_header">#989898</color>
+
+    <color name="Smooch_messageDate">@color/Smooch_header</color>
+    <color name="Smooch_messageShadow">#7f999999</color>
+
+    <color name="Smooch_remoteMessageAuthor">@color/Smooch_header</color>
+    <color name="Smooch_remoteMessageBackground">#ffffff</color>
+    <color name="Smooch_remoteMessageBorder">#d9d9d9</color>
+    <color name="Smooch_remoteMessageText">#000000</color>
+
+    <color name="Smooch_userMessageBackground">@color/Smooch_accent</color>
+    <color name="Smooch_userMessageBorder">@color/Smooch_accentDark</color>
+    <color name="Smooch_userMessageFailedBackground">@color/Smooch_accentLight</color>
+    <color name="Smooch_userMessageText">#ffffff</color>
+</resources>

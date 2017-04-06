@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_user_bg_"
+    tools:context="com.kecipir.kecipir.MemberStartActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/logo_kecipir"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp"/>
+
+            <Button
+                android:id="@+id/btn_mulai_member"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorPrimary"
+                android:text="Mulai Jadi Member"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_login_member"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorPrimary"
+                android:text="Login Member"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_jadi_host"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorOrange"
+                android:text="Jadi Agen"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/appbar"
+        layout="@layout/appbarb"/>
+
+</RelativeLayout>

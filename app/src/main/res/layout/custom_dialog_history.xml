@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="136dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/history_detailfoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/history_detailnamabarang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/history_detailfoto"
+                android:layout_toEndOf="@id/history_detailfoto"
+                android:text="nama barang"/>
+
+            <TextView
+                android:id="@+id/history_detailharga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="harga"
+                android:layout_below="@+id/history_detailnamabarang"
+                android:layout_alignLeft="@+id/history_detailnamabarang"
+                android:layout_alignStart="@+id/history_detailnamabarang" />
+
+            <TextView
+                android:id="@+id/history_detailsatuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="satuan"
+                android:layout_alignTop="@+id/history_detailharga"
+                android:layout_toRightOf="@+id/history_detailharga"
+                android:layout_toEndOf="@+id/history_detailharga" />
+
+
+            <TextView
+                android:id="@+id/history_detailpetani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="petani"
+                android:layout_below="@+id/history_detailharga"
+                android:layout_toRightOf="@+id/history_detailfoto"
+                android:layout_toEndOf="@+id/history_detailfoto" />
+
+            <TextView
+                android:id="@+id/history_detailgrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="grade"
+                android:layout_below="@+id/history_detailpetani"
+                android:layout_toRightOf="@+id/history_detailfoto"
+                android:layout_toEndOf="@+id/history_detailfoto" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/history_detailtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="total"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/history_detailquantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="satuan"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

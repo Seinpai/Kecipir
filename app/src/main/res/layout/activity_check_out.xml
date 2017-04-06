@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.kecipir.kecipir.CheckOutActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/appbar"
+        android:paddingBottom="?actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/border_black_white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="Biodata Diri"
+                        android:textSize="16dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="Nama Lengkap" />
+
+                    <EditText
+                        android:id="@+id/txt_checkout_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#eaeaea"
+                        android:focusable="false"
+                        android:hint="Nama Lengkap"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="Alamat Tujuan" />
+
+                    <EditText
+                        android:id="@+id/txt_checkout_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="#eaeaea"
+                        android:focusable="false"
+                        android:gravity="top"
+                        android:hint="Alamat Anda"
+                        android:lines="8"
+                        android:minHeight="80dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="8dp"
+                        android:scrollbars="vertical" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="No. Telpon" />
+
+                    <EditText
+                        android:id="@+id/txt_checkout_notelp"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#eaeaea"
+                        android:focusable="false"
+                        android:hint="No Telp"
+                        android:inputType="number"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/border_black_white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="Jenis Pengiriman"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner_delivery"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Keterangan Pengiriman" />
+                    <TextView
+                        android:id="@+id/deskripsi_pengantaran"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Deskripsi Pengantaran" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/border_black_white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="Cara Pembayaran"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinner_pembayaran"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Keterangan Pembayaran" />
+                    <TextView
+                        android:id="@+id/deskripsi_pembayaran"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Deskripsi Pembayaran" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/border_black_white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:focusable="false"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:singleLine="true"
+                        android:text="Kupon" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal"
+                        android:paddingBottom="10dp"
+                        android:weightSum="6">
+
+                        <EditText
+                            android:id="@+id/txt_checkout_kupon"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="3"
+                            android:singleLine="true" />
+
+                        <Button
+                            android:id="@+id/btn_checkout_kupon"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="2"
+                            android:background="@color/colorPrimary"
+                            android:text="Apply"
+                            android:textAllCaps="false"
+                            android:textColor="#fff" />
+
+                        <ImageView
+                            android:id="@+id/kupon_indicator"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/total_ordera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Total Order"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_checkout_harga_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total_ordera"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Rp. 0"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_checkout_ongkir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total_ordera"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/txt_checkout_harga_total"
+            android:layout_toRightOf="@+id/txt_checkout_harga_total"
+            android:text="Rp. 0"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_check_out"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorPrimary"
+            android:text="Check Out"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#eaeaea">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frame_buffer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:alpha="0.5"
+        android:background="#000"
+        android:clickable="true"
+        android:visibility="invisible">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/buffer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

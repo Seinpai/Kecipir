@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kecipir.kecipir.HistoryDetailActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar" />
+
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:id="@+id/scrollview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/appbar">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar"
+            android:orientation="vertical">
+
+            <!--<RelativeLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:layout_marginRight="12dp">-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:background="@drawable/border_black_white"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="4dp"-->
+            <!--android:text="Pembayaran" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:padding="4dp"-->
+            <!--android:text="Belum Lunas" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:background="@drawable/border_black_white"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="4dp"-->
+            <!--android:text="Tgl Kirim" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:padding="4dp"-->
+            <!--android:text="12-43-2016" />-->
+            <!--</LinearLayout>-->
+            <!--</RelativeLayout>-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_black_white"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/lbl_nonota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:padding="4dp"
+                    android:text="No. Nota" />
+
+                <TextView
+                    android:id="@+id/txt_nonota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/lbl_nonota"
+                    android:gravity="right"
+                    android:padding="4dp"
+                    android:text="123432245312" />
+
+                <TextView
+                    android:id="@+id/lbl_namahost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/txt_nonota"
+                    android:padding="4dp"
+                    android:text="Nama Agen" />
+
+                <TextView
+                    android:id="@+id/txt_namahost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/txt_nonota"
+                    android:layout_toRightOf="@id/lbl_namahost"
+                    android:gravity="right"
+                    android:padding="4dp"
+                    android:text="Agen" />
+
+                <TextView
+                    android:id="@+id/lbl_namamember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/txt_namahost"
+                    android:padding="4dp"
+                    android:text="Nama Member" />
+
+                <TextView
+                    android:id="@+id/txt_namamember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/txt_namahost"
+                    android:layout_toRightOf="@id/lbl_namamember"
+                    android:gravity="right"
+                    android:padding="4dp"
+                    android:text="Member" />
+
+                <TextView
+                    android:id="@+id/lbl_paymentdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/txt_namamember"
+                    android:padding="4dp"
+                    android:text="Metode Pembayaran" />
+
+                <TextView
+                    android:id="@+id/txt_paymentdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/txt_namamember"
+                    android:layout_toRightOf="@id/lbl_paymentdesc"
+                    android:gravity="right"
+                    android:padding="4dp"
+                    android:text="Mandiri, 13411324123131 a.n Sendiri andiri" />
+
+                <TextView
+                    android:id="@+id/lbl_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/txt_paymentdesc"
+                    android:padding="4dp"
+                    android:text="Pengantaran" />
+
+                <TextView
+                    android:id="@+id/txt_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txt_paymentdesc"
+                    android:layout_toRightOf="@id/lbl_delivery"
+                    android:gravity="right"
+                    android:padding="4dp"
+                    android:text="Ambil Sendiri di Agen" />
+
+                <TextView
+                    android:id="@+id/lbl_bayar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/txt_delivery"
+                    android:padding="4dp"
+                    android:text="Status" />
+
+                <TextView
+                    android:id="@+id/txt_bayar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/txt_delivery"
+                    android:layout_toRightOf="@id/lbl_bayar"
+                    android:gravity="right"
+                    android:padding="4dp"
+                    android:text="Belum Lunas" />
+            </RelativeLayout>
+
+            <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="12dp"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:layout_marginRight="12dp"-->
+            <!--android:padding="6dp"-->
+            <!--android:background="@drawable/border_black_white">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/lbl_pengiriman"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="4dp"-->
+            <!--android:text="Alamat Host"/>-->
+            <!--<TextView-->
+            <!--android:layout_below="@id/lbl_pengiriman"-->
+            <!--android:id="@+id/txt_pengiriman"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="4dp"-->
+            <!--android:text="Jl. M Kahfi 2 rt 008 Rw 08 No 41 Srenseng Sawah, Jagakarsa, Jakarta Selatan"/>-->
+            <!--</RelativeLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border_black_white"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/txt_pesanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Pesanan" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true">
+
+                    <TextView
+                        android:id="@+id/lbl_diskon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:text="Diskon"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txt_diskon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:paddingRight="16dp"
+                        android:text="Rp. 0"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/lbl_ongkir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/lbl_diskon"
+                        android:paddingLeft="16dp"
+                        android:text="Ongkos Kirim"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txt_ongkir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/lbl_diskon"
+                        android:paddingRight="16dp"
+                        android:text="Rp. 0"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/lbl_ongkir"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/lbl_total_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/line2"
+                        android:paddingLeft="16dp"
+                        android:text="Total Biaya"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/txt_total_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/line2"
+                        android:paddingRight="16dp"
+                        android:text="Rp. 0"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_historydetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/layout_total"
+                    android:layout_below="@id/txt_pesanan"
+                    android:paddingBottom="60dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:background="#fff">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:cpv_animAutostart="true"
+            app:cpv_indeterminate="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

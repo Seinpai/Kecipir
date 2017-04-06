@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/image_drawer"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_dialog_info" />
+
+    <TextView
+        android:id="@+id/txt_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_drawer"
+        android:layout_toEndOf="@+id/image_drawer"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:text="HELLO WORLD"/>
+
+    <TextView
+        android:id="@+id/badge_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(0)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_alignBaseline="@+id/txt_drawer"
+        android:layout_alignBottom="@+id/txt_drawer"
+        android:layout_toRightOf="@+id/txt_drawer"
+        android:layout_toEndOf="@+id/txt_drawer"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp" />
+
+</RelativeLayout>
