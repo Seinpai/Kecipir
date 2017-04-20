@@ -48,11 +48,16 @@ public class DataMemberAdapter    extends RecyclerView.Adapter<DataMemberAdapter
     public void onBindViewHolder(DataMemberAdapter.DataMemberViewHolder holder, int position) {
 
         final DataMember current = data.get(position);
-        holder.txtNama.setText("Nama member : " + current.getNama());
-        holder.txtAlamat.setText("Alamat : " + current.getAlamat());
-        holder.txtTelp.setText("No. Telp : " + current.getNoTelp());
-        holder.txtEmail.setText("Email : " + current.getEmail());
-        holder.txtTglDaftar.setText("Tgl Daftar : " + current.getTglDaftar());
+        if (current.getNama().length() >14) {
+            holder.txtNama.setText(current.getNama().substring(0, 13) + "..");
+        }
+        else{
+            holder.txtNama.setText(current.getNama());
+        }
+        holder.txtAlamat.setText(current.getAlamat());
+        holder.txtTelp.setText(current.getNoTelp());
+        holder.txtEmail.setText(current.getEmail());
+        holder.txtTglDaftar.setText(current.getTglDaftar());
         holder.txtBelanja.setText("Jumlah Belanja : "+current.getJmlBelanja());
 
     }
@@ -84,7 +89,6 @@ public class DataMemberAdapter    extends RecyclerView.Adapter<DataMemberAdapter
             txtAlamat = (TextView) itemView.findViewById(R.id.txt_alamat);
             txtTelp = (TextView) itemView.findViewById(R.id.txt_telp);
             txtBelanja = (TextView) itemView.findViewById(R.id.txt_jmlbelanja);
-
         }
 
         @Override

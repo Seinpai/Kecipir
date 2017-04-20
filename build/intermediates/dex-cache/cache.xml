@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Kecipir-Dev\Dropbox\Project_Kecipir\Kecipir\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="D:\Project\Kecipir\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.1"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\Kecipir-Dev\Dropbox\Project_Kecipir\Kecipir\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_d52100560660438967ff20de31f9dc24e33d2acd\classes.dex" />
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="D:\Project\Kecipir\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1bd31662bab122d18d8723e733d8ac5f26cc31e6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Kecipir-Dev\Dropbox\Project_Kecipir\Kecipir\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="D:\Project\Kecipir\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.1"
-        sha1="d5572fb38c6ebf7f33042aa0e2b37b92a85ac948">
-        <dex dex="C:\Users\Kecipir-Dev\Dropbox\Project_Kecipir\Kecipir\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_7e321eaa19978b77316c951cea08b0efbe8e80d3\classes.dex" />
+        revision="25.0.2"
+        sha1="3ec4c9bdb0d429d332386e49978539dda41b82e0">
+        <dex dex="D:\Project\Kecipir\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_154ece3509ec1c3b275e55ba7955392fec849bc7\classes.dex" />
     </item>
 
 </items>

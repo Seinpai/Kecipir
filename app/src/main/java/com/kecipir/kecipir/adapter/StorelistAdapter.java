@@ -52,12 +52,12 @@ public class StorelistAdapter extends RecyclerView.Adapter<StorelistAdapter.Stor
         sessionManager = new SessionManager(context);
         holder.namaSayuran.setText(current.getNama());
         if (sessionManager.isLoggedIn()){
-            holder.stock.setText("Sisa Stock : \n"+current.getStock());
+            holder.stock.setText("Sisa : \n"+current.getStock());
         }
         else {
             holder.stock.setText(" \n ");
         }
-        holder.satuan.setText("/"+current.getSatuan());
+        holder.satuan.setText(""+current.getSatuan());
         holder.harga.setText("Rp. "+current.getHarga());
         holder.grade.setText("Grade "+current.getGrade());
         if (current.getGrade().equalsIgnoreCase("A")){
