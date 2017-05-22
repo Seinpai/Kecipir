@@ -26,7 +26,7 @@ public class AppConfig {
     public static String VT_CLIENT_KEY_SB = "VT-client-XV5ZyX4Sa-ndrPic";
     public static String VT_BASE_URL = "https://kecipir.com";
 
-    public static int TIMEOUT_NETWORK = 500000;
+    public static int TIMEOUT_NETWORK = 120000;
     public static int RETRY_NETWORK = 2;
     public static float MULTI_NETWORK = 2f;
 

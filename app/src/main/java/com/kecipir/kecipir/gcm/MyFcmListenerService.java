@@ -54,8 +54,7 @@ public class MyFcmListenerService extends FirebaseMessagingService {
                     .setContentIntent(pIntent)
                     .setAutoCancel(true)
                     .setSound(defaultSoundUri)
-                    .setDefaults(Notification.DEFAULT_ALL)
-            ;
+                    .setDefaults(Notification.DEFAULT_ALL);
             NotificationManager mNotificationManager =
                     (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

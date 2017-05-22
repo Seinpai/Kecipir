@@ -222,10 +222,13 @@
         <activity
             android:name=".XenditGreencashActivity"
             android:label="Rincian Greencash" />
-        <activity android:name=".DetailGreencashActivity"
+        <activity
+            android:name=".DetailGreencashActivity"
             android:label="Rincian Greencash" />
-        <activity android:name=".DetailPembayaranActivity"
-            android:label="Rincian Belanja"></activity>
+        <activity
+            android:name=".DetailPembayaranActivity"
+            android:label="Rincian Belanja" />
+        <activity android:name=".MapsMemberActivity"></activity>
     </application>
 
 </manifest>
