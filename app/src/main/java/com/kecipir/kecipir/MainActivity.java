@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         List<String> pengantaranList = new ArrayList<>();
 
         pengantaranList.add("Semua");
+        pengantaranList.add("Terlaris");
         pengantaranList.add("Paket");
         pengantaranList.add("Sayur Daun");
         pengantaranList.add("Sayur Buah");
@@ -133,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
         pengantaranList.add("Bumbu");
         pengantaranList.add("Extra");
         pengantaranList.add("Herbal");
-        pengantaranList.add("Terlaris");
+
+
 
         ArrayAdapter<String> pengantaranAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pengantaranList);
         pengantaranAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -540,7 +542,6 @@ public class MainActivity extends AppCompatActivity {
                     .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
                         }
                     })
                     .show();

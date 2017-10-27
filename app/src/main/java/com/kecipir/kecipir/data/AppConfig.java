@@ -18,6 +18,7 @@ public class AppConfig {
     public static String URL_BANK = "http://api.kecipir.com/bank.php";
     public static String URL_CODMEMBER = "http://api.kecipir.com/bayarmember.php";
     public static String URL_MEMBER = "http://api.kecipir.com/listmember.php";
+    public static String URL_DAFTARMEMBER = "http://api.kecipir.com/daftarmember.php";
     public static String URL_XENDITGREEN = "http://api.kecipir.com/xendit-green.php";
     public static String URL_XENDITCHECKOUT = "http://api.kecipir.com/xendit-trans.php";
     public static String IMAGE_LINK = "http://kecipir.com/images/images_product/";

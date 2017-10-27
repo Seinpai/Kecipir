@@ -2,6 +2,7 @@ package com.kecipir.kecipir;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -176,6 +177,15 @@ public class CheckOutActivity extends AppCompatActivity {
         });
 
     }
+
+//    @Override
+//    public void onBackPressed(){
+//        super.onBackPressed();
+//    }
+//    private void SavePreferences(){
+//        SharedPreferences SP = getPreferences(MODE_PRIVATE);
+//        SharedPreferences.Editor editor = getSharedPreferences().edit();
+//    }  BELOM KELAR
 
     private void viewCheckout(final String id_user, final String email, final String loginAs) {
 

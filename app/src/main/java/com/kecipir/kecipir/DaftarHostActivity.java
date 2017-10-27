@@ -1,6 +1,7 @@
 package com.kecipir.kecipir;
 
 import android.app.Dialog;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -61,8 +62,10 @@ public class DaftarHostActivity extends AppCompatActivity {
     Button btnLanjut;
 
     List<String> kotaList;
+    List<String> kecamatanList;
+    List<String> kelurahanList;
 
-    String jnsHost, nama_kota, privasi_host = "N", pengantaran_host = "N";
+    String jnsHost, nama_kota,nama_kecamatan,nama_kelurahan, privasi_host = "N", pengantaran_host = "N";
 
     Toolbar toolbar;
 
@@ -159,7 +162,11 @@ public class DaftarHostActivity extends AppCompatActivity {
         });
 
         kotaList = new ArrayList<>();
+        kecamatanList = new ArrayList<>();
+        kelurahanList = new ArrayList<>();
         getKota();
+        getKecamatan();
+        getKelurahan();
 
         chkPrivasi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -410,6 +417,8 @@ public class DaftarHostActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
+
+
     private void getKota() {
         String tag_string_req = "req_login";
 
@@ -506,6 +515,200 @@ public class DaftarHostActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
+    private void getKecamatan() {
+        String tag_string_req = "req_login";
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d("TAG", "Dftar Host Response: " + response.toString());
+                try {
+                    if (response.equalsIgnoreCase("")) {
+//                                txtUser.setText("JUMLAH KOSONG");
+                        frameLoading.setVisibility(View.INVISIBLE);
+                        retry();
+                    } else {
+
+                        JSONArray jArr = new JSONArray(response);
+
+                        final int length = jArr.length();
+
+                        final String[] kota = new String[length];
+                        for (int i = 0; i < length; i++) {
+                            JSONObject jObj = (JSONObject) jArr.get(i);
+                            String idKota = jObj.getString("id_kota");
+                            String namaKota = jObj.getString("kota");
+                            kota[i] = idKota;
+                            kotaList.add(namaKota);
+
+                        }
+
+                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kotaList);
+                        tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spKota.setAdapter(tglPanenAdapter);
+                        frameLoading.setVisibility(View.INVISIBLE);
+
+
+                        spKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                for (int i = 0; i < length; i++) {
+                                    if (position == i) {
+                                        nama_kota = kota[i];
+//                                        Toast.makeText(DaftarHostActivity.this, nama_kota, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    retry();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("TAG", "StoreLIst Error: " + error.getMessage());
+                Toast.makeText(DaftarHostActivity.this,
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                retry();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tag", "getCmbKota");
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<String, String>();
+                String creds = String.format("%s:%s", "green", "web-indonesia");
+                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                params.put("Authorization", auth);
+                return params;
+            }
+        };
+
+        strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+    private void getKelurahan() {
+        String tag_string_req = "req_login";
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d("TAG", "Dftar Host Response: " + response.toString());
+                try {
+                    if (response.equalsIgnoreCase("")) {
+//                                txtUser.setText("JUMLAH KOSONG");
+                        frameLoading.setVisibility(View.INVISIBLE);
+                        retry();
+                    } else {
+
+                        JSONArray jArr = new JSONArray(response);
+
+                        final int length = jArr.length();
+
+                        final String[] kota = new String[length];
+                        for (int i = 0; i < length; i++) {
+                            JSONObject jObj = (JSONObject) jArr.get(i);
+                            String idKota = jObj.getString("id_kota");
+                            String namaKota = jObj.getString("kota");
+                            kota[i] = idKota;
+                            kotaList.add(namaKota);
+
+                        }
+
+                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kotaList);
+                        tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spKota.setAdapter(tglPanenAdapter);
+                        frameLoading.setVisibility(View.INVISIBLE);
+
+
+                        spKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                for (int i = 0; i < length; i++) {
+                                    if (position == i) {
+                                        nama_kota = kota[i];
+//                                        Toast.makeText(DaftarHostActivity.this, nama_kota, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
+
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    retry();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("TAG", "StoreLIst Error: " + error.getMessage());
+                Toast.makeText(DaftarHostActivity.this,
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                retry();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tag", "getCmbKota");
+
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<String, String>();
+                String creds = String.format("%s:%s", "green", "web-indonesia");
+                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                params.put("Authorization", auth);
+                return params;
+            }
+        };
+
+        strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+
+
     private void retry() {
 
         frameLoading.setVisibility(View.VISIBLE);
@@ -516,6 +719,8 @@ public class DaftarHostActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         getKota();
+                        getKecamatan();
+                        getKelurahan();
                     }
                 })
                 .setNegativeButton("batal", new DialogInterface.OnClickListener() {

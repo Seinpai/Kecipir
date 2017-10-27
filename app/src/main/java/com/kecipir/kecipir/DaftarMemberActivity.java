@@ -350,6 +350,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
             }
         });
 
+        frameLoading.setVisibility(View.INVISIBLE);
 
         chkRegMember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -646,7 +647,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
 
         String tag_string_req = "req_login";
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+                AppConfig.URL_DAFTARMEMBER, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -696,7 +697,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
 
-                params.put("tag", "daftarmembernonauth");
+                params.put("tag", "daftarmember");
                 params.put("id_host", id_host);
                 params.put("email", email);
                 params.put("nama", nama);

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,10 +22,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -101,7 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
     List<ParentDrawer> dataDrawer;
 
     int payment;
-
+    private int mCurrRotation = 0;
 
     GoogleApiClient mGoogleApiClient;
     ClickListener clickListener;
@@ -381,6 +384,22 @@ public class NavigationDrawerFragment extends Fragment {
         imgTglPanen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                mCurrRotation %= 360;
+                float fromRotation = mCurrRotation;
+                float toRotation = mCurrRotation += 720;
+
+                final RotateAnimation rotateAnim = new RotateAnimation(
+                        fromRotation, toRotation, imgTglPanen.getWidth()/2, imgTglPanen.getHeight()/2);
+
+                rotateAnim.setDuration(10000); // Use 0 ms to rotate instantly
+                rotateAnim.setFillAfter(true); // Must be true or the animation will reset
+
+                imgTglPanen.startAnimation(rotateAnim);
+
+
+//                imgTglPanen.setRotation(imgTglPanen.getRotation() + 90);
                 dialog = new Dialog(getActivity(), R.style.MyDialogTheme);
                 dialog.setContentView(R.layout.dialog_tglpanen);
                 dialog.setTitle("Tanggal Panen");
@@ -513,6 +532,21 @@ public class NavigationDrawerFragment extends Fragment {
         imgHost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mCurrRotation %= 360;
+                float fromRotation = mCurrRotation;
+                float toRotation = mCurrRotation += 720;
+
+                final RotateAnimation rotateAnim = new RotateAnimation(
+                        fromRotation, toRotation, imgHost.getWidth()/2, imgHost.getHeight()/2);
+
+                rotateAnim.setDuration(10000); // Use 0 ms to rotate instantly
+                rotateAnim.setFillAfter(true); // Must be true or the animation will reset
+
+                imgHost .startAnimation(rotateAnim);
+
+
+
                 dialogHost = new Dialog(getActivity(), R.style.MyDialogTheme);
                 dialogHost.setContentView(R.layout.dialog_gantihost);
                 dialogHost.setTitle("Ganti Agen");
@@ -995,7 +1029,5 @@ public class NavigationDrawerFragment extends Fragment {
                 })
                 .show();
     }
-
-
 
 }

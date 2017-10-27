@@ -10,7 +10,9 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 import com.kecipir.kecipir.R;
 
+import io.smooch.core.Settings;
 import io.smooch.core.Smooch;
+import io.smooch.core.SmoochCallback;
 
 /**
  * Created by Albani on 10/19/2015.
@@ -28,7 +30,13 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-        Smooch.init(this, "d9yl8vwjl0rfk9n7akl62tjbl");
+//        Smooch.init(this, "576238d83f700d40008c37af");
+        Smooch.init(this, new Settings("576238d83f700d40008c37af"), new SmoochCallback() {
+            @Override
+            public void run(Response response) {
+                // Handle init result
+            }
+        });
     }
 
     public static synchronized AppController getInstance() {
