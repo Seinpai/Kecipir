@@ -57,7 +57,7 @@ import java.util.Map;
 public class DaftarHostActivity extends AppCompatActivity {
 
     EditText edtNama, edtEmail, edtNoTelp, edtAlamat, edtKelurahan, edtKecamatan, edtKodePos;
-    Spinner spKota, spJenis, spinnerPengantaran;
+    Spinner spKota,spKelurahan,spKecamatan, spJenis, spinnerPengantaran;
     TextView txtSyarat;
     Button btnLanjut;
 
@@ -91,12 +91,15 @@ public class DaftarHostActivity extends AppCompatActivity {
         edtNoTelp = (EditText) findViewById(R.id.edt_reghost_notelp);
         edtAlamat = (EditText) findViewById(R.id.edt_reghost_alamat);
 
-        edtKelurahan = (EditText) findViewById(R.id.edt_reghost_kelurahan);
-        edtKecamatan = (EditText) findViewById(R.id.edt_reghost_kecamatan);
+//        edtKelurahan = (EditText) findViewById(R.id.edt_reghost_kelurahan);
+//        edtKecamatan = (EditText) findViewById(R.id.edt_reghost_kecamatan);
         edtKodePos = (EditText) findViewById(R.id.edt_reghost_kodepos);
         txtSyarat = (TextView) findViewById(R.id.txt_syarat_ketentuan);
 
         spKota = (Spinner) findViewById(R.id.spinnerKotaHost);
+        spKecamatan = (Spinner)findViewById(R.id.spinnerKecamatanHost);
+        spKelurahan = (Spinner)findViewById(R.id.spinnerKelurahanHost);
+
         spJenis = (Spinner) findViewById(R.id.spinnerJenisHost);
         chkBox = (CheckBox) findViewById(R.id.chk_reghost);
         chkPrivasi = (CheckBox) findViewById(R.id.chk_privasi_reghost);
@@ -165,8 +168,7 @@ public class DaftarHostActivity extends AppCompatActivity {
         kecamatanList = new ArrayList<>();
         kelurahanList = new ArrayList<>();
         getKota();
-        getKecamatan();
-        getKelurahan();
+
 
         chkPrivasi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -434,11 +436,8 @@ public class DaftarHostActivity extends AppCompatActivity {
                         frameLoading.setVisibility(View.INVISIBLE);
                         retry();
                     } else {
-
                         JSONArray jArr = new JSONArray(response);
-
                         final int length = jArr.length();
-
                         final String[] kota = new String[length];
                         for (int i = 0; i < length; i++) {
                             JSONObject jObj = (JSONObject) jArr.get(i);
@@ -446,14 +445,12 @@ public class DaftarHostActivity extends AppCompatActivity {
                             String namaKota = jObj.getString("kota");
                             kota[i] = idKota;
                             kotaList.add(namaKota);
-
                         }
 
                         ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kotaList);
                         tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spKota.setAdapter(tglPanenAdapter);
                         frameLoading.setVisibility(View.INVISIBLE);
-
 
                         spKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
@@ -463,6 +460,7 @@ public class DaftarHostActivity extends AppCompatActivity {
                                         nama_kota = kota[i];
 //                                        Toast.makeText(DaftarHostActivity.this, nama_kota, Toast.LENGTH_SHORT).show();
                                     }
+                                    getKecamatan();
                                 }
                             }
 
@@ -471,8 +469,6 @@ public class DaftarHostActivity extends AppCompatActivity {
 
                             }
                         });
-
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -509,7 +505,6 @@ public class DaftarHostActivity extends AppCompatActivity {
                 return params;
             }
         };
-
         strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
@@ -530,33 +525,29 @@ public class DaftarHostActivity extends AppCompatActivity {
                         frameLoading.setVisibility(View.INVISIBLE);
                         retry();
                     } else {
-
                         JSONArray jArr = new JSONArray(response);
-
                         final int length = jArr.length();
-
                         final String[] kota = new String[length];
                         for (int i = 0; i < length; i++) {
                             JSONObject jObj = (JSONObject) jArr.get(i);
                             String idKota = jObj.getString("id_kota");
                             String namaKota = jObj.getString("kota");
                             kota[i] = idKota;
-                            kotaList.add(namaKota);
-
+                            kecamatanList.add(namaKota);
                         }
 
-                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kotaList);
+                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kecamatanList);
                         tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spKota.setAdapter(tglPanenAdapter);
+                        spKecamatan.setAdapter(tglPanenAdapter);
                         frameLoading.setVisibility(View.INVISIBLE);
 
-
-                        spKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        spKecamatan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                 for (int i = 0; i < length; i++) {
                                     if (position == i) {
                                         nama_kota = kota[i];
+                                        getKelurahan();
 //                                        Toast.makeText(DaftarHostActivity.this, nama_kota, Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -567,8 +558,6 @@ public class DaftarHostActivity extends AppCompatActivity {
 
                             }
                         });
-
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -605,11 +594,11 @@ public class DaftarHostActivity extends AppCompatActivity {
                 return params;
             }
         };
-
         strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
 
     private void getKelurahan() {
         String tag_string_req = "req_login";
@@ -626,28 +615,23 @@ public class DaftarHostActivity extends AppCompatActivity {
                         frameLoading.setVisibility(View.INVISIBLE);
                         retry();
                     } else {
-
                         JSONArray jArr = new JSONArray(response);
-
                         final int length = jArr.length();
-
                         final String[] kota = new String[length];
                         for (int i = 0; i < length; i++) {
                             JSONObject jObj = (JSONObject) jArr.get(i);
                             String idKota = jObj.getString("id_kota");
                             String namaKota = jObj.getString("kota");
                             kota[i] = idKota;
-                            kotaList.add(namaKota);
-
+                            kelurahanList.add(namaKota);
                         }
 
-                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kotaList);
+                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kelurahanList);
                         tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spKota.setAdapter(tglPanenAdapter);
+                        spKelurahan.setAdapter(tglPanenAdapter);
                         frameLoading.setVisibility(View.INVISIBLE);
 
-
-                        spKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        spKelurahan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                 for (int i = 0; i < length; i++) {
@@ -663,8 +647,6 @@ public class DaftarHostActivity extends AppCompatActivity {
 
                             }
                         });
-
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -701,11 +683,99 @@ public class DaftarHostActivity extends AppCompatActivity {
                 return params;
             }
         };
-
         strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
+
+//
+//    private void getKecamatan() {
+//        String tag_string_req = "req_login";
+//
+//        StringRequest strReq = new StringRequest(Request.Method.POST,
+//                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+//
+//            @Override
+//            public void onResponse(String response) {
+//                Log.d("TAG", "Daftar Host Response: " + response.toString());
+//                try {
+//                    if (response.equalsIgnoreCase("")) {
+//                        frameLoading.setVisibility(View.INVISIBLE);
+//                        retry();
+//                    } else {
+//                        JSONArray jArr = new JSONArray(response);
+//                        final int length = jArr.length();
+//                        final String[] kecamatan = new String[length];
+//                        for (int i = 0; i < length; i++) {
+//                            JSONObject jObj = (JSONObject) jArr.get(i);
+//                            String idKecamatan = jObj.getString("id_kecamatan");
+//                            String namaKecamatan = jObj.getString("kecamatan");
+//                            kecamatan[i] = idKecamatan;
+//                            kecamatanList.add(namaKecamatan);
+//                        }
+//
+//                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarHostActivity.this, android.R.layout.simple_spinner_item, kecamatanList);
+//                        tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                        spKecamatan.setAdapter(tglPanenAdapter);
+//                        frameLoading.setVisibility(View.INVISIBLE);
+//
+//                        spKecamatan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                            @Override
+//                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                                for (int i = 0; i < length; i++) {
+//                                    if (position == i) {
+//                                        nama_kecamatan = kecamatan[i];
+//                                    }
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onNothingSelected(AdapterView<?> parent) {
+//
+//                            }
+//                        });
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    retry();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("TAG", "StoreLIst Error: " + error.getMessage());
+//                Toast.makeText(DaftarHostActivity.this,
+//                        error.getMessage(), Toast.LENGTH_LONG).show();
+//                retry();
+//            }
+//        }) {
+//
+//            @Override
+//            protected Map<String, String> getParams() {
+//                // Posting parameters to login url
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("tag", "getCmbKecamatan");
+//
+//                return params;
+//            }
+//
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                HashMap<String, String> params = new HashMap<String, String>();
+//                String creds = String.format("%s:%s", "green", "web-indonesia");
+//                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+//                params.put("Authorization", auth);
+//                return params;
+//            }
+//        };
+//        strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
+//        // Adding request to request queue
+//        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//    }
+
 
 
 
@@ -719,8 +789,8 @@ public class DaftarHostActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         getKota();
-                        getKecamatan();
-                        getKelurahan();
+//                        getKecamatan();
+//                        getKelurahan();
                     }
                 })
                 .setNegativeButton("batal", new DialogInterface.OnClickListener() {

@@ -243,18 +243,14 @@
                 android:text="Kecamatan"
                 android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/edt_reghost_kecamatan"
+            <Spinner
+                android:id="@+id/spinnerKecamatanHost"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#eeeeee"
-                android:background="#fff"
-                android:hint="Kecamatan"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:singleLine="true" />
+                android:background="#fff"/>
 
 
             <TextView
@@ -267,18 +263,14 @@
                 android:text="Kelurahan"
                 android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/edt_reghost_kelurahan"
+            <Spinner
+                android:id="@+id/spinnerKelurahanHost"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:backgroundTint="#eeeeee"
-                android:background="#fff"
-                android:hint="Kelurahan"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:singleLine="true" />
+                android:background="#fff"/>
 
 
             <TextView
