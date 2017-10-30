@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="io.smooch:core-5.3.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/core-5.3.0.aar/652e20504e290dd623ebc73fbdee3dc2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/core-5.3.0.aar/652e20504e290dd623ebc73fbdee3dc2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
