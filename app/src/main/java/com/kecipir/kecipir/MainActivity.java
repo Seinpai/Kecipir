@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
         List<String> pengantaranList = new ArrayList<>();
 
         pengantaranList.add("Semua");
-        pengantaranList.add("Terlaris");
         pengantaranList.add("Paket");
         pengantaranList.add("Sayur Daun");
         pengantaranList.add("Sayur Buah");
@@ -134,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
         pengantaranList.add("Bumbu");
         pengantaranList.add("Extra");
         pengantaranList.add("Herbal");
+        pengantaranList.add("Sayur Bunga");
+        pengantaranList.add("Terlaris");
+        pengantaranList.add("Promo");
 
 
 

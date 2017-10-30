@@ -48,7 +48,7 @@ public class MenuCategoryFragment extends Fragment implements ClickListener {
         data = new ArrayList<>();
 
         int[] icons = {R.drawable.ic_btn_semua, R.drawable.ic_btn_paket, R.drawable.ic_btn_sayurdaun, R.drawable.ic_btn_sayurbuah, R.drawable.ic_btn_buah, R.drawable.ic_btn_bumbu, R.drawable.ic_btn_extra, R.drawable.ic_btn_herbal, R.drawable.ic_btn_popular};
-        String[] titles = {"Semua", "Paket",  "Sayur Daun", "Sayur Buah", "Buah", "Bumbu", "Extra", "Herbal", "Terlaris"};
+        String[] titles = {"Semua", "Paket", "Promo", "Sayur Daun", "Sayur Buah", "Buah", "Bumbu", "Extra", "Herbal", "Terlaris"};
 //        String[] titles2 = {"Semua", "Terlaris", "Paket",  "Sayur Daun", "Sayur Buah", "Buah", "Bumbu", "Extra", "Herbal"};
 
         for (int i = 0; i < titles.length; i++) {
