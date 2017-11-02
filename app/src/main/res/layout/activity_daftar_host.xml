@@ -191,7 +191,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Alamat"
+                android:text="Alamat Pengantaran"
                 android:textSize="16sp" />
 
             <EditText
