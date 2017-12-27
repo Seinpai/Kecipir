@@ -12,6 +12,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,8 +64,12 @@ public class DetailGreencashActivity extends AppCompatActivity {
     String harga_jualrp;
     String subtotalrp;
     String total;
+    String chck_paymentType;
     String diskon;
     int intTotal =0;
+
+    ImageView img1,img2,img3,img4;
+
 
     SessionManager sessionManager;
     HashMap<String, String> user;
@@ -76,6 +81,7 @@ public class DetailGreencashActivity extends AppCompatActivity {
     TextView txtTotalPembayaran;
     TextView txtBankTrans;
     TextView txtExpiry;
+    TextView namaBank;
     Button btnCheckout;
 
 
@@ -97,16 +103,17 @@ public class DetailGreencashActivity extends AppCompatActivity {
         final String idUser = user.get("uid");
 
         final Bundle b = getIntent().getExtras();
+        chck_paymentType = b.getString("paymentType");
+
         Log.d("username", email+" - "+idUser);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_detail);
 
-        txtTotalHarga = (TextView) findViewById(R.id.txt_total_harga);
         txtPaymentDesc = (TextView) findViewById(R.id.txt_paymentdesc);
-        txtKodeUnik = (TextView) findViewById(R.id.txt_kode_unique);
         txtTotalPembayaran = (TextView) findViewById(R.id.txt_total_pembayaran);
         txtBankTrans = (TextView) findViewById(R.id.txt_transfer_bank);
         txtExpiry = (TextView) findViewById(R.id.txt_expiry);
+        namaBank = (TextView)findViewById(R.id.txt_namabank);
         frameLoading = (RelativeLayout) findViewById(R.id.frame_loading);
         frameBuffer = (RelativeLayout) findViewById(R.id.frame_buffer);
 
@@ -114,14 +121,73 @@ public class DetailGreencashActivity extends AppCompatActivity {
         mTracker = appController.getDefaultTracker();
         sendScreenName();
 
-        SpannableString ss = new SpannableString(b.getString("no_deposit"));
+        SpannableString ss = new SpannableString(b.getString("nota"));
         ss.setSpan(new StyleSpan(Typeface.BOLD), 0, ss.length(),0);
 
         txtPaymentDesc.setText("Transaksi No. "+ss+" yang perlu dibayarkan sebesar");
+        txtTotalPembayaran.setText("Jumlah Transfer : Rp. "+b.getString("amount"));
+        txtBankTrans.setText(b.getString("virtual"));
+        txtExpiry.setText(b.getString("expired"));
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
+        frameLoading.setVisibility(View.INVISIBLE);
 
-        readXenditCheckout(idUser, email, b.getString("no_deposit"));
+        img1 = (ImageView) findViewById(R.id.img_bank1);
+        img2 = (ImageView) findViewById(R.id.img_bank2);
+        img3 = (ImageView) findViewById(R.id.img_bank3);
+        img4 = (ImageView) findViewById(R.id.img_bank4);
+
+
+        if (chck_paymentType.equals("12")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_bca_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_bca_2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.img_bca_3));
+            namaBank.setText("Bank BCA");
+        }
+        else if(chck_paymentType.equals("13")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_mandiri_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_mandiri_2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.img_mandiri_3));
+            namaBank.setText("Bank Mandiri");
+        }else if(chck_paymentType.equals("14")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_bni_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_bni_2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.img_bni_3));
+            img4.setImageDrawable(getResources().getDrawable(R.drawable.img_bni_4));
+            namaBank.setText("Bank BNI");
+        }else if(chck_paymentType.equals("15")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_bri_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_bri_2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.img_bri_3));
+            namaBank.setText("Bank BRI");
+        }else if(chck_paymentType.equals("16")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_cimb_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_cimb_2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.img_cimb_3));
+            namaBank.setText("Bank CIMB NIAGA");
+        }else if(chck_paymentType.equals("17")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_permata_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_permata_2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.img_permata_3));
+            namaBank.setText("Bank Permata");
+        }else if(chck_paymentType.equals("18")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.bii));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.bii2));
+            img3.setImageDrawable(getResources().getDrawable(R.drawable.bii3));
+            namaBank.setText("Bank BII Maybank");
+        }else if(chck_paymentType.equals("19")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_danamon_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_danamon_2));
+            namaBank.setText("Bank Danamon");
+        }else if(chck_paymentType.equals("20")){
+            img1.setImageDrawable(getResources().getDrawable(R.drawable.img_hana_1));
+            img2.setImageDrawable(getResources().getDrawable(R.drawable.img_hana_2));
+            namaBank.setText("Bank KEB Hana Bank");
+        }
+
+
+
+//        readXenditCheckout(idUser, email, b.getString("no_deposit"));
 
     }
     private void readXenditCheckout(final String id_user, final String email, final String no_deposit) {

@@ -40,6 +40,7 @@ public class SplashScreen extends AppCompatActivity {
     String email;
     String password;
     String loginAs;
+    String id_host;
     HashMap<String, String> user;
 
     @Override
@@ -102,8 +103,7 @@ public class SplashScreen extends AppCompatActivity {
 
                         sessionManager.setLogin(true, jObj.getString("id"), user.getString("tabel"),user.getString("username"), user.getString("email"), password, user.getString("id_host"), loginAs, jObj.getString("tgl_panen"));
                         // Launch main activity
-                        Intent intent = new Intent(SplashScreen.this,
-                                MainActivity.class);
+                        Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

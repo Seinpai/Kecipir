@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -72,6 +73,11 @@ public class ShoppingCartActivity extends AppCompatActivity implements ClickList
     String harga_jualrp;
     String subtotalrp;
 
+    String kc_harga_asli;
+    String kc_harga_promo;
+
+    String hargaTotal2;
+
     SessionManager sessionManager;
     HashMap<String, String> user;
 
@@ -80,7 +86,11 @@ public class ShoppingCartActivity extends AppCompatActivity implements ClickList
     TextView hargaTotal;
     TextView txtNamaHost;
     TextView txtAlamatHost;
+    TextView txthargabarangawal_cart;
+    TextView hargaTotalAwal;
     Button btnCheckout;
+
+    String hargaFix;
 
 
     private CoordinatorLayout coordinatorLayout;
@@ -106,9 +116,14 @@ public class ShoppingCartActivity extends AppCompatActivity implements ClickList
         txtNamaHost = (TextView) findViewById(R.id.nama_host);
         txtAlamatHost = (TextView) findViewById(R.id.alamat_host);
         hargaTotal = (TextView) findViewById(R.id.harga_total);
+        hargaTotalAwal = (TextView) findViewById(R.id.harga_total_awal);
         frameLoading = (RelativeLayout) findViewById(R.id.frame_loading);
         frameBuffer = (RelativeLayout) findViewById(R.id.frame_buffer);
         btnCheckout = (Button) findViewById(R.id.btn_check_out);
+
+
+        hargaTotalAwal.setVisibility(View.INVISIBLE);
+
 
         AppController appController = (AppController) getApplication();
         mTracker = appController.getDefaultTracker();
@@ -154,6 +169,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements ClickList
                     if(!error){
                         Intent intent = new Intent(ShoppingCartActivity.this, CheckOutActivity.class);
                         intent.putExtra("subtotal", hargaTotal.getText().toString().substring(4));
+                        intent.putExtra("subtotalFix", hargaTotalAwal.getText().toString());
                         startActivity(intent);
                     }
                     else {
@@ -293,13 +309,23 @@ public class ShoppingCartActivity extends AppCompatActivity implements ClickList
                             subtotal = jObj.getString("subtotal");
                             subtotalrp = jObj.getString("subtotalrp");
                             harga_jualrp = jObj.getString("harga_jualrp");
+                            kc_harga_asli = jObj.getString("kc_harga_asli");
+                            kc_harga_promo = jObj.getString("kc_harga_promo");
+                            hargaFix = jObj.getString("kc_subtotal_asli");
+
 
                             int jumlah_harga = Integer.parseInt(harga_jual)*Integer.parseInt(quantity);
-                            cart = new ShoppingCart(id_wishlist, id_barang, tgl_panen, nama_petani, quantity, foto, grade, satuan, nama_barang, harga_jual,subtotal, harga_jualrp, jumlah_harga+"", subtotalrp);
+                            int jumlah_harga_awal = Integer.parseInt(kc_harga_asli)*Integer.parseInt(quantity);
+
+
+                            cart = new ShoppingCart(id_wishlist, id_barang, tgl_panen, nama_petani, quantity, foto, grade, satuan, nama_barang, harga_jual,subtotal, harga_jualrp, jumlah_harga+"", subtotalrp, kc_harga_asli, kc_harga_promo, jumlah_harga_awal+"");
                             data.add(cart);
+
+
                         }
 
                         hargaTotal.setText("Rp. "+cart.getSubtotal());
+                        hargaTotalAwal.setText(hargaFix);
 
                         adapter = new ShoppingCartAdapter(ShoppingCartActivity.this, data);
 
@@ -378,6 +404,27 @@ public class ShoppingCartActivity extends AppCompatActivity implements ClickList
         int i = Integer.parseInt(hargaTotal.getText().toString().substring(4));
         return i;
     }
+
+    public int getTotalHargaAwal(){
+        int i = Integer.parseInt(hargaTotalAwal.getText().toString());
+        return i;
+    }
+
+    public void setTotalHargaAwal(String totalHargaAWAL){
+        hargaTotalAwal.setText(totalHargaAWAL);
+    }
+
+//    public void setTotalHargaAwal(String totalHarga2){
+//        this.hargaTotal2 = totalHarga2;
+//    }
+//    public int getTotalHargaAwal(){
+//
+////        int i = Integer.parseInt(hargaTotal.getText().toString().substring(4));
+//        int i = Integer.parseInt(hargaTotal2);
+//        return i;
+//    }
+
+
 
     public void setBtnCheckout(boolean param, String text){
         btnCheckout.setEnabled(param);

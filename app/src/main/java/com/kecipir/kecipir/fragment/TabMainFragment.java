@@ -281,6 +281,7 @@ public class TabMainFragment extends Fragment implements ModelClickListener {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
     public void parseBarang(final String position, final String id_host, final String tglpanen) {
 
         String tag_string_req = "req_login";

@@ -37,7 +37,7 @@
             android:layout_gravity="center_horizontal"
             android:text="-"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/txt_expket"
@@ -70,23 +70,6 @@
             android:text="Transaksi No. Nota - yang perlu dibayarkan sebesar"
             android:gravity="center"
             />
-
-        <TextView
-            android:id="@+id/txt_total_harga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Total Belanja : Rp. -"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
-        <TextView
-            android:id="@+id/txt_kode_unique"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Nomor unik : Rp. -"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
         <TextView
             android:id="@+id/txt_total_pembayaran"
             android:layout_width="wrap_content"
@@ -113,9 +96,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Silahkan bayar transaksi anda dengan cara mentranfer ke salah satu bank berikut :"
+            android:text="Silahkan bayar transaksi anda dengan cara mentranfer ke rekening Virtual Account berikut :"
             android:gravity="center"
             />
+
+        <TextView
+            android:id="@+id/txt_namabank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/txt_transfer_bank"
@@ -126,6 +118,44 @@
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="16sp"/>
+
+        <LinearLayout
+            android:id="@+id/layout_tutorial"
+            android:layout_below="@id/layout_bank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:padding="12dp"
+            android:orientation="vertical"
+            android:background="#eaeaea">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_bank1"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_bank2"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_bank3"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/img_bank4"/>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout

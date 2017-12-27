@@ -145,6 +145,12 @@ public class NavigationDrawerFragment extends Fragment {
             mUserLearnedDrawer = false;
         }
 
+//        Bundle args = getArguments();
+//        String myString = args.getString("host");
+//
+//        Log.i("host from drawer:","id_host :"+myString);
+
+
         clickListener = new ClickListener() {
             @Override
             public void itemClicked(View view, int position) {
@@ -787,14 +793,12 @@ public class NavigationDrawerFragment extends Fragment {
                                 hostAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 spinnerHost.setAdapter(hostAdapter);
 
-
                                 spinnerHost.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                     @Override
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         for (int i = 0; i < length; i++) {
                                             if (position == i) {
                                                 id_host = idhost[i];
-//                                                Toast.makeText(getActivity(), id_host, Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     }

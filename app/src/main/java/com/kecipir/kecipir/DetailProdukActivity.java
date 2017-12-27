@@ -213,6 +213,8 @@ public class DetailProdukActivity extends AppCompatActivity {
                         sale = jsonObject.getBoolean("sale");
                         ket = jsonObject.getString("ket");
 
+                        Log.i("barang panen =>", " ID " +idBarangPanen+" TANGGAL " + tgl_value);
+
 
                         frameLoading.setVisibility(View.INVISIBLE);
                     }

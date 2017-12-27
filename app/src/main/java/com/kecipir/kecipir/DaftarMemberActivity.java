@@ -90,6 +90,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
     SupportMapFragment mapFragment;
 
     String nama, email, pass, pass2, hostId;
+    String tmp_kode_kota;
     List<String> hostList;
 
     GoogleMap map;
@@ -256,6 +257,11 @@ public class DaftarMemberActivity extends AppCompatActivity {
         txtSyarat.setMovementMethod(LinkMovementMethod.getInstance());
 //        txtSyarat.setHighlightColor(Color.BLACK);
 
+
+        Log.i("MSG : ", "ID HOST : "+id_host+" ID KOTA : "+ id_kota);
+
+
+
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap gmap) {
@@ -401,6 +407,103 @@ public class DaftarMemberActivity extends AppCompatActivity {
         });
     }
 
+
+//
+//    private void getKota() {
+//        String tag_string_req = "req_login";
+//
+//        StringRequest strReq = new StringRequest(Request.Method.POST,
+//                AppConfig.URL_LOGIN, new Response.Listener<String>() {
+//
+//            @Override
+//            public void onResponse(String response) {
+//                Log.d("TAG", "Kota List Response: " + response.toString());
+//                try {
+//                    if (response.equalsIgnoreCase("")) {
+//
+//                    } else {
+//
+//                        JSONArray jArr = new JSONArray(response);
+//
+//                        final int length = jArr.length();
+//
+//                        final String[] kota = new String[length];
+//                        for (int i = 0; i < length; i++) {
+//                            JSONObject jObj = (JSONObject) jArr.get(i);
+//                            String idKota = jObj.getString("id_kota");
+//                            String namaKota = jObj.getString("kota");
+//                            kota[i] = idKota;
+//                            kotaList.add(namaKota);
+//
+//                        }
+//
+//                        ArrayAdapter<String> kotaAdapter = new ArrayAdapter<String>(DaftarMemberActivity.this, android.R.layout.simple_spinner_item, kotaList);
+//                        kotaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                        spinnerKota.setAdapter(kotaAdapter);
+//
+//                        spinnerKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                            @Override
+//                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                                for (int i = 0; i < length; i++) {
+//                                    if (position == i) {
+//                                        id_kota = kota[i];
+//                                        getListHost("06");
+////                                                Toast.makeText(getActivity(), id_kota, Toast.LENGTH_SHORT).show();
+//                                    }
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onNothingSelected(AdapterView<?> parent) {
+//
+//                            }
+//                        });
+//
+//
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    retry();
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("TAG", "StoreLIst Error: " + error.getMessage());
+//                Toast.makeText(DaftarMemberActivity.this,
+//                        error.getMessage(), Toast.LENGTH_LONG).show();
+//                retry();
+//            }
+//        }) {
+//
+//            @Override
+//            protected Map<String, String> getParams() {
+//                // Posting parameters to login url
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("tag", "getCmbKota");
+//
+//                return params;
+//            }
+//
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                HashMap<String, String> params = new HashMap<String, String>();
+//                String creds = String.format("%s:%s", "green", "web-indonesia");
+//                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+//                params.put("Authorization", auth);
+//                return params;
+//            }
+//        };
+//
+//        strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
+//        // Adding request to request queue
+//        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//    }
+
+
+
     private void getKota() {
         String tag_string_req = "req_login";
 
@@ -409,40 +512,42 @@ public class DaftarMemberActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.d("TAG", "Kota List Response: " + response.toString());
+                Log.d("TAG", "Dftar Host Response: " + response.toString());
                 try {
                     if (response.equalsIgnoreCase("")) {
-
+//                                txtUser.setText("JUMLAH KOSONG");
+                        frameLoading.setVisibility(View.INVISIBLE);
+                        retry();
                     } else {
-
                         JSONArray jArr = new JSONArray(response);
-
                         final int length = jArr.length();
-
                         final String[] kota = new String[length];
                         for (int i = 0; i < length; i++) {
                             JSONObject jObj = (JSONObject) jArr.get(i);
                             String idKota = jObj.getString("id_kota");
                             String namaKota = jObj.getString("kota");
+                            tmp_kode_kota = idKota;
                             kota[i] = idKota;
                             kotaList.add(namaKota);
-
                         }
 
-                        ArrayAdapter<String> kotaAdapter = new ArrayAdapter<String>(DaftarMemberActivity.this, android.R.layout.simple_spinner_item, kotaList);
-                        kotaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spinnerKota.setAdapter(kotaAdapter);
+                        ArrayAdapter<String> tglPanenAdapter = new ArrayAdapter<String>(DaftarMemberActivity.this, android.R.layout.simple_spinner_item, kotaList);
+                        tglPanenAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerKota.setAdapter(tglPanenAdapter);
+                        frameLoading.setVisibility(View.INVISIBLE);
 
                         spinnerKota.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                 for (int i = 0; i < length; i++) {
                                     if (position == i) {
-                                        id_kota = kota[i];
-                                        getListHost(id_kota);
-//                                                Toast.makeText(getActivity(), id_kota, Toast.LENGTH_SHORT).show();
+                                        tmp_kode_kota = kota[i];
+//                                        Toast.makeText(DaftarMemberActivity.this, tmp_kode_kota, Toast.LENGTH_SHORT).show();
+                                        getListHost(tmp_kode_kota);
                                     }
                                 }
+//                                kecamatanList.clear();
+//                                getKecamatan();
                             }
 
                             @Override
@@ -450,8 +555,6 @@ public class DaftarMemberActivity extends AppCompatActivity {
 
                             }
                         });
-
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -488,11 +591,13 @@ public class DaftarMemberActivity extends AppCompatActivity {
                 return params;
             }
         };
-
         strReq.setRetryPolicy(new DefaultRetryPolicy(AppConfig.TIMEOUT_NETWORK, AppConfig.RETRY_NETWORK, AppConfig.MULTI_NETWORK));
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
+
+
 
     private void getListHost(final String id_kota) {
         String tag_string_req = "req_login";
@@ -534,7 +639,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
                             markerOptions= new MarkerOptions()
                                     .title(i+"-"+namaHost+" - "+areaLayanan)
                                     .position(new LatLng(Double.parseDouble(lati[i]),Double.parseDouble(langi[i])))
-                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                                     ;
 
                             map.addMarker(markerOptions);
@@ -571,6 +676,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
 
                                     if (position == i) {
                                         hostId = idHost[i];
+//                                        Toast.makeText(DaftarMemberActivity.this, hostId, Toast.LENGTH_SHORT).show();
                                         LatLng currentLoc = new LatLng(Double.parseDouble(lati[i]), Double.parseDouble(langi[i]));
                                         map.moveCamera(CameraUpdateFactory.newLatLng(currentLoc));
 //                                        map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLoc, 12.0f));
@@ -767,7 +873,7 @@ public class DaftarMemberActivity extends AppCompatActivity {
 
 
         new AlertDialog.Builder(this)
-                .setTitle("Koneksi Bermasalah ")
+                .setTitle("Daftar Member Koneksi Bermasalah ")
                 .setMessage("Coba lagi")
                 .setPositiveButton("Coba lagi", new DialogInterface.OnClickListener() {
                     @Override

@@ -9,6 +9,8 @@
     <include
         android:id="@+id/appbar"
         layout="@layout/appbar" />
+    
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -191,7 +193,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:padding="8dp"
                     android:orientation="vertical">
 
@@ -229,6 +231,12 @@
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
                         android:text="Deskripsi Pembayaran" />
+
+
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/webView1"></WebView>
 
                 </LinearLayout>
             </RelativeLayout>

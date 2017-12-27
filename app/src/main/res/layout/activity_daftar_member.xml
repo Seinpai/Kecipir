@@ -88,6 +88,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <EditText
                 android:id="@+id/edt_regmember_nama"
                 android:layout_width="match_parent"
@@ -155,8 +156,10 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
                 android:background="#fff"
-                android:visibility="gone"
                 android:backgroundTint="#eeeeee" />
+
+            <!--android:visibility="gone"-->
+
 
             <Spinner
                 android:id="@+id/spinner_regmember"
@@ -166,8 +169,10 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
                 android:background="#fff"
-                android:visibility="gone"
+
                 android:backgroundTint="#eeeeee" />
+
+            <!--android:visibility="gone"-->
 
             <fragment
                 android:id="@+id/map_regmember"

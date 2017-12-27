@@ -65,7 +65,7 @@ public class DaftarHostActivity extends AppCompatActivity {
     List<String> kecamatanList;
     List<String> kelurahanList;
 
-    String jnsHost, nama_kota,tmp_kode_kota,tmp_nama_kecamatan ,nama_kecamatan,nama_kelurahan, privasi_host = "N", pengantaran_host = "N";
+    String jnsHost, nama_kota,tmp_kode_kota,tmp_nama_kecamatan, tmp_nama_kelurahan ,nama_kecamatan,nama_kelurahan, privasi_host = "N", pengantaran_host = "N";
 
     Toolbar toolbar;
 
@@ -312,8 +312,9 @@ public class DaftarHostActivity extends AppCompatActivity {
                     String email = edtEmail.getText().toString();
                     String notelp = edtNoTelp.getText().toString();
                     String alamat = edtAlamat.getText().toString();
-                    String kelurahan = edtKelurahan.getText().toString();
-                    String kecamatan = edtKecamatan.getText().toString();
+                    String Kota = spKota.getSelectedItem().toString();
+                    String kelurahan = tmp_nama_kelurahan;
+                    String kecamatan = tmp_nama_kecamatan;
                     String kodepos = edtKodePos.getText().toString();
 
                     if (nama.equals("")||email.equals("")||notelp.equals("")||alamat.equals("")){
@@ -324,7 +325,7 @@ public class DaftarHostActivity extends AppCompatActivity {
                     }
                     else {
                         frameBuffer.setVisibility(View.VISIBLE);
-                        daftarHost(nama, email, notelp, alamat, nama_kota, jnsHost, privasi_host, pengantaran_host, kelurahan, kecamatan, kodepos);
+                        daftarHost(nama, email, notelp, alamat, Kota, jnsHost, privasi_host, pengantaran_host, kelurahan, kecamatan, kodepos);
                     }
                 }
                 else{
@@ -459,7 +460,7 @@ public class DaftarHostActivity extends AppCompatActivity {
                                 for (int i = 0; i < length; i++) {
                                     if (position == i) {
                                         tmp_kode_kota = kota[i];
-                                        Toast.makeText(DaftarHostActivity.this, tmp_kode_kota, Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(DaftarHostActivity.this, tmp_kode_kota, Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 kecamatanList.clear();
@@ -549,7 +550,7 @@ public class DaftarHostActivity extends AppCompatActivity {
                                 for (int i = 0; i < length; i++) {
                                     if (position == i) {
                                         tmp_nama_kecamatan = spKecamatan.getSelectedItem().toString();
-                                        Toast.makeText(DaftarHostActivity.this, tmp_nama_kecamatan, Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(DaftarHostActivity.this, tmp_nama_kecamatan, Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 kelurahanList.clear();
@@ -640,6 +641,9 @@ public class DaftarHostActivity extends AppCompatActivity {
                                 for (int i = 0; i < length; i++) {
                                     if (position == i) {
                                         nama_kota = kelurahan[i];
+
+                                        tmp_nama_kelurahan = spKelurahan.getSelectedItem().toString();
+//                                        Toast.makeText(DaftarHostActivity.this, tmp_nama_kelurahan, Toast.LENGTH_SHORT).show();
 //                                        Toast.makeText(DaftarHostActivity.this, nama_kota, Toast.LENGTH_SHORT).show();
                                     }
                                 }

@@ -3,6 +3,7 @@ package com.kecipir.kecipir.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
@@ -70,9 +71,11 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         ShoppingCart current = data.get(position);
         holder.namaBarangCart.setText(current.getNama_barang());
         holder.hargaBarangCart.setText(current.getHarga_jual());
+        holder.hargaBarangCartAwal.setText(current.getKc_harga_asli());
         holder.tglPanenCart.setText(current.getTgl_panen());
         holder.petaniCart.setText(current.getNama_petani());
         holder.jmlCart.setText(current.getQuantity());
+
         Glide.with(context).load(current.getFoto()).into(holder.imgCart);
 
     }
@@ -91,6 +94,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         ImageView imgCart;
         TextView namaBarangCart;
         TextView hargaBarangCart;
+        TextView hargaBarangCartAwal;
         TextView tglPanenCart;
         TextView petaniCart;
         ImageView deleteCart;
@@ -102,6 +106,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         String email;
         int tot_awal;
         int tot;
+        int tot_awal2;
+        int tot2;
         SessionManager sessionManager;
 
         ShoppingCart current;
@@ -113,6 +119,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             deleteCart = (ImageView) itemView.findViewById(R.id.delete_cart);
             namaBarangCart = (TextView) itemView.findViewById(R.id.namabarang_cart);
             hargaBarangCart = (TextView) itemView.findViewById(R.id.hargabarang_cart);
+            hargaBarangCartAwal =(TextView) itemView.findViewById(R.id.hargabarangawal_cart);
             tglPanenCart = (TextView) itemView.findViewById(R.id.tglpanen_cart);
             petaniCart = (TextView) itemView.findViewById(R.id.petani_cart);
             btnPlus = (Button) itemView.findViewById(R.id.btn_pluscart);
@@ -123,6 +130,11 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             HashMap<String, String> user = sessionManager.getUser();
             id_user = user.get("uid");
             email = user.get("email");
+
+            hargaBarangCartAwal = (TextView) itemView.findViewById(R.id.hargabarangawal_cart);
+            hargaBarangCartAwal.setPaintFlags(hargaBarangCartAwal.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+
+            hargaBarangCartAwal.setVisibility(View.INVISIBLE);
 
             btnPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -135,6 +147,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                         ((ShoppingCartActivity)context).setLoading();
 
                         int harga_satuan = Integer.parseInt(current.getHarga_jual());
+
                         updateCart(id_user, email, current.getId_wishlist(), current.getId_barang(), ""+jml_cart, harga_satuan+"", indicator, "add");
                     }
                 }
@@ -173,6 +186,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         tot_awal = ((ShoppingCartActivity)context).getTotalHarga();
+                                        tot_awal2 = ((ShoppingCartActivity)context).getTotalHargaAwal();
                                         ((ShoppingCartActivity)context).setLoading();
                                         current = data.get(getLayoutPosition());
                                         hapusWishlist(id_user, email, current.getId_barang());
@@ -225,16 +239,23 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                             current.setQuantity(jml_cart);
 
                             tot_awal = ((ShoppingCartActivity)context).getTotalHarga();
+                            tot_awal2 = ((ShoppingCartActivity)context).getTotalHargaAwal();
+
 
                             ((ShoppingCartActivity)context).dismissLoading();
-                                int harga_satuan = Integer.parseInt(current.getHarga_jual());
+                            int harga_satuan = Integer.parseInt(current.getHarga_jual());
                             tot = tot_awal + (Integer.parseInt(current.getHarga_jual())*indicator);
+                            tot2 = tot_awal2 + (Integer.parseInt(current.getKc_harga_asli())*indicator);
 
                             if(tot > 0) {
                                 ((ShoppingCartActivity)context).setTotalHarga("Rp. " + tot + "");
+                                ((ShoppingCartActivity)context).setTotalHargaAwal(String.valueOf(tot2));
+//                                current.setKc_harga_asli(String.valueOf(tot2));
+
                             }
                             else {
                                 ((ShoppingCartActivity) context).setTotalHarga("Rp. 0");
+//                                ((ShoppingCartActivity)context).setTotalHargaAwal("Rp. 0");
                             }
 
                         }
@@ -309,14 +330,18 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     int qty = Integer.parseInt(jmlCart.getText().toString());
 //                                        hapusWishlist(id_user, current.getId_barang());
                     tot = tot_awal - (Integer.parseInt(current.getHarga_jual())*qty);
+                    tot2 = tot_awal2 - (Integer.parseInt(current.getKc_harga_asli())*qty);
                     if(data.size() > 0) {
                         ((ShoppingCartActivity)context).setTotalHarga("Rp. " + tot + "");
+                        ((ShoppingCartActivity)context).setTotalHargaAwal(String.valueOf(tot2));
                     }
                     else {
                         ((ShoppingCartActivity) context).setTotalHarga("Rp. 0");
+                        ((ShoppingCartActivity)context).setTotalHargaAwal(String.valueOf(tot2));
                     }
 
                     Log.d("HITUNG!!!", tot + " = "+tot_awal+" - "+Integer.parseInt(current.getJumlah_harga()));
+                    Log.d("HITUNG!!!", tot2 + " = "+tot_awal2+" - "+Integer.parseInt(current.getKc_harga_asli()));
                     Toast.makeText(context, "Terhapus", Toast.LENGTH_SHORT).show();
 
                     JSONObject jsonObject = null;

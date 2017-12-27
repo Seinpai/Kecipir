@@ -21,7 +21,9 @@ public class AppConfig {
     public static String URL_DAFTARMEMBER = "http://api.kecipir.com/daftarmember.php";
     public static String URL_XENDITGREEN = "http://api.kecipir.com/xendit-green.php";
     public static String URL_XENDITCHECKOUT = "http://api.kecipir.com/xendit-trans.php";
+    public static String URL_NICEPAYCHECKOUT = "http://api.kecipir.com/NicePay.php";
     public static String IMAGE_LINK = "http://kecipir.com/images/images_product/";
+    public static String IMAGE_BANK_LINK = "R.drawable.";
 
     public static String VT_CLIENT_KEY_PD = "VT-client-f-DcmaxiJ9SANDLw";
     public static String VT_CLIENT_KEY_SB = "VT-client-XV5ZyX4Sa-ndrPic";

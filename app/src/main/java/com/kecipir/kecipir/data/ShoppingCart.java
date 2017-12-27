@@ -17,11 +17,19 @@ public class ShoppingCart {
     private String jumlah_harga;
     private String subtotalrp;
 
+    private String kc_harga_asli;
+    private String kc_harga_promo;
+    private  String kc_jumlah_harga;
+
     public ShoppingCart(){
 
     }
 
-    public ShoppingCart(String id_wishlist, String id_barang,String  tgl_panen, String nama_petani,String  quantity,String  foto, String grade, String satuan, String nama_barang, String harga_jual,String subtotal, String harga_jualrp, String jumlah_harga, String subtotalrp){
+    public ShoppingCart(String id_wishlist, String id_barang,String  tgl_panen, String nama_petani,
+                        String  quantity,String  foto, String grade, String satuan, String nama_barang,
+                        String harga_jual,String subtotal, String harga_jualrp, String jumlah_harga,
+                        String subtotalrp, String harga_asli, String harga_promo, String kc_jumlah_harga)
+    {
         this.id_barang = id_barang;
         this.tgl_panen = tgl_panen;
         this.nama_petani = nama_petani;
@@ -36,6 +44,9 @@ public class ShoppingCart {
         this.jumlah_harga = jumlah_harga;
         this.subtotalrp = subtotalrp;
         this.id_wishlist = id_wishlist;
+        this.kc_harga_asli = harga_asli;
+        this.kc_harga_promo = harga_promo;
+        this.kc_jumlah_harga = kc_jumlah_harga;
     }
 
     public String getId_wishlist() {
@@ -45,6 +56,10 @@ public class ShoppingCart {
     public void setId_wishlist(String id_wishlist) {
         this.id_wishlist = id_wishlist;
     }
+
+    public  String getKc_jumlah_harga(){ return  kc_jumlah_harga; };
+
+    public void  setKc_jumlah_harga(String kc_jumlah_harga) { this.kc_jumlah_harga = kc_jumlah_harga; };
 
     public String getId_barang() {
         return id_barang;
@@ -134,6 +149,22 @@ public class ShoppingCart {
         this.harga_jual = harga_jual;
     }
 
+
+    public String getKc_harga_asli() {
+        return kc_harga_asli;
+    }
+
+    public void setKc_harga_asli(String kc_harga_asli) {
+        this.kc_harga_asli = kc_harga_asli;
+    }
+
+    public String getKc_harga_promo() {
+        return kc_harga_promo;
+    }
+
+    public void setKc_harga_promo(String kc_harga_promo) {
+        this.kc_harga_promo = kc_harga_promo;
+    }
 
     public String getJumlah_harga() {
         return jumlah_harga;

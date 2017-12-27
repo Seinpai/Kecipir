@@ -171,7 +171,7 @@ public class DetailPembayaranActivity extends AppCompatActivity {
                             harga_jualrp = jObj.getString("harga_jualrp");
 
                             int jumlah_harga = Integer.parseInt(harga_jual)*Integer.parseInt(quantity);
-                            cart = new ShoppingCart(id_wishlist, id_barang, tgl_panen, nama_petani, quantity, foto, grade, satuan, nama_barang, harga_jual,subtotal, harga_jualrp, jumlah_harga+"", subtotalrp);
+                            cart = new ShoppingCart(id_wishlist, id_barang, tgl_panen, nama_petani, quantity, foto, grade, satuan, nama_barang, harga_jual,subtotal, harga_jualrp, jumlah_harga+"", subtotalrp,"","","");
                             data.add(cart);
                             intTotal = jumlah_harga + intTotal;
                         }

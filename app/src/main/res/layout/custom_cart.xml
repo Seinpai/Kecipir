@@ -43,12 +43,21 @@
                 android:text="Nama Barang" />
 
             <TextView
-                android:id="@+id/hargabarang_cart"
+                android:id="@+id/hargabarangawal_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/namabarang_cart"
                 android:layout_alignStart="@+id/namabarang_cart"
                 android:layout_below="@+id/namabarang_cart"
+                android:text="Harga Barang Awal" />
+
+            <TextView
+                android:id="@+id/hargabarang_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/hargabarangawal_cart"
+                android:layout_alignStart="@+id/hargabarangawal_cart"
+                android:layout_below="@+id/hargabarangawal_cart"
                 android:text="Harga Barang" />
 
             <TextView

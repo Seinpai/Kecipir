@@ -1,6 +1,9 @@
 package com.kecipir.kecipir;
 
+import android.app.Dialog;
 import android.app.FragmentTransaction;
+import android.app.VoiceInteractor;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +12,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
+import java.io.UnsupportedEncodingException;
+//import java.io.*;
+import java.net.URLEncoder;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,16 +26,22 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -38,9 +50,11 @@ import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.astuetz.PagerSlidingTabStrip;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.android.gms.analytics.HitBuilders;
@@ -54,10 +68,16 @@ import com.kecipir.kecipir.fragment.TabMainFragment;
 import com.kecipir.kecipir.gcm.MyFcmListenerService;
 import com.kecipir.kecipir.gcm.MyInstanceIDListenerService;
 import com.kecipir.kecipir.gcm.RegistrationIntentService;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnItemClickListener;
+import com.orhanobut.dialogplus.ViewHolder;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     TextView titleCategory, txtCategory, txtTglPanen;
-    ImageView btnCategory;
+    ImageView btnCategory, imagePopup;
     RelativeLayout btnCategoryText;
     LinearLayout layoutTglPanen;
 
@@ -78,10 +98,12 @@ public class MainActivity extends AppCompatActivity {
     String host;
     String email;
     String password;
+    String id_host;
     int position;
 
     int menuCategoryOff;
     String currentCategory;
+    String PopUpPromo;
 
 
     private int mNotificationCount;
@@ -98,9 +120,13 @@ public class MainActivity extends AppCompatActivity {
 
         checkVersion();
 
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+
+        Log.i("host from main:","id_host :"+id_host);
+
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
+
+
 
         if (savedInstanceState==null)
         {
@@ -117,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         layoutTglPanen = (LinearLayout) findViewById(R.id.layout_tglpanen);
         spinnerCategory = (Spinner) findViewById(R.id.spinner_category);
 //        btnCategory.setImageResource(R.drawable.ic_btn_kategori);
+//        imagePopup = (ImageView)findViewById(R.id.imgPopup);
 
         AppController appController = (AppController) getApplication();
         mTracker = appController.getDefaultTracker();
@@ -126,13 +153,19 @@ public class MainActivity extends AppCompatActivity {
         List<String> pengantaranList = new ArrayList<>();
 
         pengantaranList.add("Semua");
+        pengantaranList.add("Terlaris");
+        pengantaranList.add("Promo");
+        pengantaranList.add("Paket");
         pengantaranList.add("Sayur Daun");
         pengantaranList.add("Sayur Buah");
         pengantaranList.add("Buah");
         pengantaranList.add("Bumbu");
         pengantaranList.add("Extra");
         pengantaranList.add("Herbal");
-        pengantaranList.add("Terlaris");
+        pengantaranList.add("Sayur Bunga");
+        pengantaranList.add("Umbi");
+        pengantaranList.add("Sayur");
+        pengantaranList.add("Bumbu dan Herbal");
 
 
 
@@ -159,6 +192,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
 //        setMenuCategory(0);
 
 //        btnCategoryText.setOnClickListener(new View.OnClickListener() {
@@ -181,6 +216,8 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+
         sessionManager = new SessionManager(this);
         user = sessionManager.getUser();
 
@@ -188,6 +225,8 @@ public class MainActivity extends AppCompatActivity {
             startService(new Intent(this, MyInstanceIDListenerService.class));
             cekCart(user.get("email"), user.get("uid"));
             sendRegistrationToServer(user.get("uid"), user.get("email"), FirebaseInstanceId.getInstance().getToken());
+            cekPopupPromo();
+
         }
 
 
@@ -404,6 +443,106 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void cekPopupPromo(){
+        RequestQueue queue = Volley.newRequestQueue(this);
+        final String url = "http://api.kecipir.com/kcp_api.php";
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new com.android.volley.Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("Response", response);
+
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+
+                            if (success.equals("1")){
+                                String link = jsonObject.getString("link");
+                                String img = jsonObject.getString("message");
+                                PopUpPromo = link+img;
+                                Log.i("msg popup1"," Link "+PopUpPromo);
+
+                                String imgurl = link + img.replace(" ", "%20");
+                                Log.i("msg popup2"," Link "+imgurl);
+
+
+
+                                DialogPlus dialog = DialogPlus.newDialog(MainActivity.this)
+                                        .setContentHolder(new ViewHolder(R.layout.dialog_popup))
+                                        .setGravity(Gravity.CENTER)
+                                        .setInAnimation(R.anim.abc_fade_in)
+                                        .setOutAnimation(R.anim.abc_fade_out)
+                                        .setContentWidth(ViewGroup.LayoutParams.MATCH_PARENT)
+                                        .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+                                        .setOnItemClickListener(new OnItemClickListener() {
+                                            @Override
+                                            public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
+                                            }
+                                        })
+                                        .create();
+                                ImageView imgPopup = (ImageView) dialog.findViewById(R.id.img_popup);
+                                Picasso.with(MainActivity.this).load(imgurl).into(imgPopup);
+
+
+                                dialog.show();
+
+//                                LayoutInflater inflater = (LayoutInflater) MainActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//
+//                                View layout = inflater.inflate(R.layout.dialog_popup,(ViewGroup) findViewById(R.id.img_popup));
+//
+//                                PopupWindow pwindow = new PopupWindow(layout, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,true);
+
+//                                Dialog settingsDialog = new Dialog(MainActivity.this);
+//                                settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+//                                settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.dialog_popup, null));
+//
+
+
+
+                            }else
+                            {
+                                Toast.makeText(MainActivity.this, jsonObject.getString("message") , Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new com.android.volley.Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Error.Response", error.getMessage());
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("tag", "promo_today");
+
+                return params;
+            }
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<String, String>();
+                String creds = String.format("%s:%s","green","web-indonesia");
+                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                params.put("Authorization", auth);
+                return params;
+            }
+        };
+        postRequest.setRetryPolicy(new DefaultRetryPolicy(20000,2,2f));
+        queue.add(postRequest);
+    }
+
     private void checkVersion() {
 
         String tag_string_req = "req_login";
@@ -467,13 +606,7 @@ public class MainActivity extends AppCompatActivity {
                                                 }
                                             }
                                         })
-                                        .setNegativeButton("Nanti saja", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                    dialog.dismiss();
-                                                }
-                                            }
-                                        )
+
                                         .setCancelable(false)
                                         .show();
                             }

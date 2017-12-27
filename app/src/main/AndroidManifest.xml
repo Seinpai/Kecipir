@@ -184,7 +184,9 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBlNB6HAtNq-BIJj-xcdd2SMFFUzssneWg" />
+            android:value="AIzaSyB_7TWehyxOj-N3Jv7us0QuhSq3mP8RNFU"
+            />
+        <!--android:value="AIzaSyBlNB6HAtNq-BIJj-xcdd2SMFFUzssneWg"-->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -217,6 +219,9 @@
             android:name=".XenditConfirmationActivity"
             android:label="Rincian Belanja" />
         <activity
+            android:name=".CreditCardActivity"
+            android:label="Pembayaran Via Credit Card" />
+        <activity
             android:name=".AddGreencashActivity"
             android:label="Tambah Greencash" />
         <activity
@@ -228,7 +233,7 @@
         <activity
             android:name=".DetailPembayaranActivity"
             android:label="Rincian Belanja" />
-        <activity android:name=".MapsMemberActivity"></activity>
+        <activity android:name=".MapsMemberActivity" />
     </application>
 
 </manifest>

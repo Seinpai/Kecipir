@@ -54,7 +54,7 @@ public class ListDepositActivity extends AppCompatActivity implements ClickListe
     SessionManager sessionManager;
     ImageView imgSpanner;
 
-    String email, id_user;
+    String email, id_host, id_user;
     String total;
 
 
@@ -95,11 +95,13 @@ public class ListDepositActivity extends AppCompatActivity implements ClickListe
         email = user.get("email");
         id_user = user.get("uid");
 
+
         String loginAs = user.get("loginAs");
         if(loginAs.equalsIgnoreCase("member")){
             lblTotalKomisi.setVisibility(View.GONE);
             txtTotalKomisi.setVisibility(View.GONE);
         }
+
 
         parseDeposit(email, id_user);
         adapter = new DepositAdapter(this, data);
@@ -111,13 +113,14 @@ public class ListDepositActivity extends AppCompatActivity implements ClickListe
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ListDepositActivity.this, AddGreencashActivity.class);
-                startActivity(i);
 
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                Intent i = new Intent(ListDepositActivity.this, AddGreencashActivity.class);
+                i.putExtra("id_host",id_host);
+                startActivity(i);
             }
         });
+
+
 
         layoutSpanner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,12 +161,14 @@ public class ListDepositActivity extends AppCompatActivity implements ClickListe
                 try {
 
                     JSONObject jsonObject = new JSONObject(response);
+                    String hostid = jsonObject.getString("id_host");
                     String totalrp = jsonObject.getString("totalrp");
                     total = jsonObject.getString("total");
                     if (total.equalsIgnoreCase("0")){
 //                        btnTarik.setVisibility(View.INVISIBLE);
                         btnTarik.setEnabled(false);
                     }
+
                     String totalDeporp = jsonObject.getString("total_deporp");
                     String totalBonusrp = jsonObject.getString("total_bonusrp");
                     String totalKomisirp = jsonObject.getString("komisirp");
@@ -173,6 +178,9 @@ public class ListDepositActivity extends AppCompatActivity implements ClickListe
                     txtTotalDepo.setText("Rp. "+totalDeporp);
                     txtTotalBonus.setText("Rp. "+totalBonusrp);
                     txtTotalKomisi.setText("Rp. "+totalKomisirp);
+                   // Toast.makeText(ListDepositActivity.this, hostid, Toast.LENGTH_SHORT).show();
+                    id_host = hostid;
+
                     JSONArray jsonArray = new JSONArray(listDeposit);
                     int length = jsonArray.length();
                     if (length == 0){

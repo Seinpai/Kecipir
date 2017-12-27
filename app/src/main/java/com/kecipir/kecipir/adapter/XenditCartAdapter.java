@@ -49,10 +49,10 @@ public class XenditCartAdapter  extends RecyclerView.Adapter<XenditCartAdapter.X
     @Override
     public void onBindViewHolder(XenditCartAdapter.XenditCartViewHolder holder, int position) {
         ShoppingCart current = data.get(position);
-        holder.namaBarangCart.setText(current.getNama_barang());
-        holder.hargaBarangCart.setText(current.getHarga_jual());
-        holder.tglPanenCart.setText(current.getTgl_panen());
-        holder.petaniCart.setText(current.getNama_petani());
+//        holder.namaBarangCart.setText(current.getNama_barang());
+//        holder.hargaBarangCart.setText(current.getHarga_jual());
+//        holder.tglPanenCart.setText(current.getTgl_panen());
+//        holder.petaniCart.setText(current.getNama_petani());
         Glide.with(context).load(current.getFoto()).into(holder.imgCart);
 
     }
@@ -84,10 +84,10 @@ public class XenditCartAdapter  extends RecyclerView.Adapter<XenditCartAdapter.X
             super(itemView);
             itemView.setOnClickListener(this);
             imgCart = (ImageView) itemView.findViewById(R.id.img_cart);
-            namaBarangCart = (TextView) itemView.findViewById(R.id.namabarang_cart);
-            hargaBarangCart = (TextView) itemView.findViewById(R.id.hargabarang_cart);
-            tglPanenCart = (TextView) itemView.findViewById(R.id.tglpanen_cart);
-            petaniCart = (TextView) itemView.findViewById(R.id.petani_cart);
+//            namaBarangCart = (TextView) itemView.findViewById(R.id.namabarang_cart);
+//            hargaBarangCart = (TextView) itemView.findViewById(R.id.hargabarang_cart);
+//            tglPanenCart = (TextView) itemView.findViewById(R.id.tglpanen_cart);
+//            petaniCart = (TextView) itemView.findViewById(R.id.petani_cart);
 
             sessionManager = new SessionManager(context);
             HashMap<String, String> user = sessionManager.getUser();
